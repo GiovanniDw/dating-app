@@ -1,5 +1,8 @@
 # Dating App
-This info will be updated
+The research of this project will be documented in the [Wiki](https://github.com/GiovanniDw/dating-app/wiki)
+
+_This info will be updated_
+
 ## Description
 
 This repo is a project based on the following course at HvA CMD
