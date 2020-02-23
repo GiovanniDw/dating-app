@@ -1,0 +1,38 @@
+<%- include ('../partials/head') %>
+<header>
+  
+<nav class=top-nav>
+    <div class=left><a href="/profile">back</a></div>
+  <h1>Search</h1>  
+    <div class=right><a href=""></a></div>
+    
+</nav>
+  
+  <form class="searchbar" action="/games/search/query" method="get">
+  <div class=searchbar-input-wrap>
+    <input type="search" id="mySearch" name="q" placeholder="Search">
+    <i class="material-icons">search</i>
+  </div>
+</form>
+</header>
+
+<section>
+    <ul class="games">
+        <% for (var i = 0; i < games.length; i++) { %>
+        <li class="item">
+        <h3><%= games[i].title %></h3>
+            <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+            <form action="/games/add/<%= games[i].id %>" method="post">
+              <button id=js-remove
+                      data-id="<%= games[i].id %>"
+                      class="icon add material-icons">add</button>
+            </form>
+        </li>
+        <% } %>
+    </ul>    
+</section>
+
+
+
+
+<%- include ('../partials/tail') %>

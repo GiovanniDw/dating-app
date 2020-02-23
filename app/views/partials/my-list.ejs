@@ -1,0 +1,17 @@
+<h3>Games</h3>
+<div>
+    <ul class="games">
+   
+        <% for (var i = 0; i < games.length; i++) { %>
+        <li class="item">
+        
+            <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+          
+        </li>
+        <% } %>
+         <li class="item">
+            <img src="images/add-game.png" alt="">
+            <a href='/games' id="" class="icon add material-icons">search</a>
+        </li>
+    </ul>    
+</div>

@@ -1,0 +1,25 @@
+<%- include ('../partials/head') %>
+<header class=header>
+  <a href="/"><img class=logo src="/images/logo.svg"/></a>
+  <h1>Gamer</h1>
+</header>
+<section>
+<form action=/login method=POST>
+  <fieldset class=margin-bottom-md>
+    <div class=login-register>
+      <a class=active href="login">Login</a>
+      <a href="register">Register</a>
+    </div>
+    <div>
+    <label class=form-label>Email</label>
+    <input class="form-control" type=email name=username>
+    </div>
+    <label>Password</label>
+    <input class=form-label type=password name=password>
+    <button type=submit class="btn-main btn-bottom">Login</button>
+  </fieldset>
+</form>
+ </section>
+ <%- include ('../partials/tail') %>
+
+ 
