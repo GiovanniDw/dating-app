@@ -1,11 +1,17 @@
         <footer>
 <%if (typeof user == 'object' && user) {%>
-        <nav class=mobile-nav>
+
+        <nav class="navbar is-fixed-bottom">
+      <div class="tabs is-fullwidth">
+<ul>
+     <li><a href="/profile"> <span class="icon"><i class="fas fa-angle-left" aria-hidden="true"></i></a></li>
+        <li><a href="/"><img src="/images/logo.svg" /></a></li>
+        <li><a href="/chat"><img src="/images/chat.svg" /></a></li>
+</ul>
+       
       
-        <a href="/profile"><img src="/images/user.svg" /></a>
-        <a href="/"><img src="/images/logo.svg" /></a>
-        <a href="/chat"><img src="/images/chat.svg" /></a>
-      
+    
+      </div>
     </nav>
     <% } else {} %>
     </footer>

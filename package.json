@@ -4,9 +4,16 @@
   "description": "Dating app Packages",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
+    "build-autoprefix": "postcss --use autoprefixer --map false --output app/static/css/main.css app/static/css/main.css",
+    "build-clean": "rimraf css",
+    "build-cleancss": "cleancss -o app/static/css/main.min.css app/static/css/main.css",
+    "build-sass": "node-sass --output-style expanded --source-map true app/static/sass/main.sass app/static/css/main.css",
+    "deploy": "npm run build",
+    "test": "test",
     "start": "node server.js",
-    "nmStart": "nodemon server.js"
+    "nmStart": "nodemon server.js",
+    "sassStart": "npm run build-sass -- --watch"
   },
   "repository": {
     "type": "git",
@@ -37,8 +44,10 @@
   },
   "devDependencies": {
     "ejs-lint": "^1.0.1",
-    "gulp": "^4.0.2",
-    "gulp-sass": "^4.0.2",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "autoprefixer": "^9.6.1",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.12.0",
+    
   }
 }

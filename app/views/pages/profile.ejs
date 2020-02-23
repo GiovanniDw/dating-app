@@ -1,33 +1,39 @@
 <%- include ('../partials/head') %>
 <header>
-    <nav class=top-nav>
+    <nav class=navbar>
         <div class=left></div>
         <div class=right><a href="profile/edit">edit</a></div>
     </nav>
-    <h1>Profile</h1>    
+
+    <h1 class=title>Profile</h1>    
 </header>
-<section>
+<section class=section>
+<div class=container>
     <% if (typeof user == 'object' && user) { %>
+    
+        
+    
     <div class=profile-card>
-        <div class=profile-picture>
-            <img src="/uploads/<%= user.picture %> ">
-        </div>
+        <figure class="image is-128x128">
+            <img class=is-rounded src="/uploads/<%= user.picture %> ">
+        </figure>
         <div>
-            <h2><%= user.name %></h2>
-            <p class='icon console'> <%= user.console %></p>
+            <h2 class=title><%= user.name %></h2>
+            <p class='console'> <%= user.console %></p>
         </div>
     </div>
-    <h3>Looking for</h3>
-        <p> <%= user.gamemode %> </p>
-    <h3>Playstyle</h3>
-        <p> <%= user.playstyle %> </p>
-    <h3>About</h3>
-        <p> <%= user.about %> </p>
+    <h3 class="title is-4">Looking for</h3>
+        <p class="subtitle"> <%= user.gamemode %> </p>
+    <h3 class="title is-4">Playstyle</h3>
+        <p class="subtitle"> <%= user.playstyle %> </p>
+    <h3 class="title is-4">About</h3>
+        <p class="subtitle"> <%= user.about %> </p>
 
 <%- include ('../partials/my-list') %>
 <% } else { %>
       <h2>Hi Nobody!</h2>
 <% } %>
+</div>
 </section>
 <div class='log-sign'>
 <a class='btn-logout' href="/logout">Logout</a>
