@@ -1,8 +1,9 @@
 let express = require('express');
 let router = express.Router();
 let auth = require("../controllers/AuthController.js");
+let match = require("../controllers/MatchController.js")
 
-router.get('/', auth.home);
+router.get('/', auth.isLoggedIn, match.show);
 
 router.get('/register', auth.register);
 router.post('/register', auth.doRegister);

@@ -9,6 +9,7 @@ profileController.profile = async function (req, res, next) {
         const userID = req.user.id;
         myGames = await profileHelper.myGames(userID); // populates usergames into myGames of logged in user
         res.render('pages/profile', {
+            title: 'Profile',
             user: req.user,
             games: myGames
         })

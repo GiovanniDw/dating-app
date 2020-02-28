@@ -1,21 +1,33 @@
         <footer>
-<%if (typeof user == 'object' && user) {%>
 
-        <nav class="navbar is-fixed-bottom">
-      <div class="tabs is-fullwidth">
+
+        <nav class="tabs is-fullwidth navbar is-fixed-bottom">
+      
+<% if (typeof title != "undefined") { %>
+
 <ul>
-     <li><a href="/profile"> <span class="icon"><i class="fas fa-angle-left" aria-hidden="true"></i></a></li>
-        <li><a href="/"><img src="/images/logo.svg" /></a></li>
-        <li><a href="/chat"><img src="/images/chat.svg" /></a></li>
+     <li><a href="/profile"> <ion-icon name="person-circle<%_ if (title !== 'Profile') { %>-outline<% } else {} %>"></ion-icon></a></li>
+        <li><a href="/"><ion-icon name="compass<%_ if (title !== 'Discover') { %>-outline<% } %>"></ion-icon></a></li>
+        <li><a href="/chat"><ion-icon name="chatbubbles<%_ if (title !== 'Chats') { %>-outline<% } else {} %>"></ion-icon></ion-icon> </a></li>
 </ul>
        
-      
+    <% } else { %>
+<ul>
+     <li><a href="/profile"> <ion-icon name="person-circle-outline"></ion-icon>G</a></li>
+        <li><a href="/"><ion-icon name="compass-outline"></ion-icon></a></li>
+        <li><a href="/chat"><ion-icon name="chatbubbles-outline"></ion-icon></ion-icon> </a></li>
+</ul>
+
+    <% } %>  
     
-      </div>
+      
     </nav>
-    <% } else {} %>
+    
     </footer>
         <script src="/js/main.js"></script>
+        <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
     </body>
 </html>
+
+
 

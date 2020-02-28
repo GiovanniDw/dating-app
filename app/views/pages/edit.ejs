@@ -7,45 +7,45 @@
     
 </nav>
 </header>
-<section>    
+<section class="section">    
 <form class=edit action=edit method=post enctype=multipart/form-data>
-<fieldset>
 
-<legend>Profile Picture</legend>
-  <input name=picture type=file accept=image/*>
-  </fieldset>
-  <fieldset>
-  <legend>Your Email</legend>
-  <input name=username value= <%= user.username %> readonly>
-  </fieldset>
+
+<label class="label">Profile Picture</label>
+  <input class="input" name=picture type=file accept=image/*>
+  
+  
+  <label class="label">Your Email</label>
+  <input class="input" name=username value= <%= user.username %> readonly>
+  
   <fieldset class='active'>
-    <legend>Your Name</legend>
-    <input name=name value= <%= user.name %> >
-</fieldset>
-  <fieldset>
-  <legend>Console </legend>
-  <div><input id=playstation type="radio" name="console" value="playstation" checked><label for=playstation>Playsation</label></div>
-    <div><input id=xbox type="radio" name="console" value="xbox"><label for=xbox>Xbox</label></div>
-    <div><input id=pc type="radio" name="console" value="pc"><label for=pc>PC</label></div>
-    <div><input id=other type="radio" name="console" value="other"><label for=other>Other</label></div>
-  </fieldset>
-  <fieldset>
-    <legend>Looking for</legend>
-      <div><input id=coop type="radio" name="gamemode" value="Coop" checked><label for=coop>Coop</label></div>
-      <div><input id=multiplayer type="radio" name="gamemode" value="Multiplayer"><label for=multiplayer>Multiplayer</label></div>
-  </fieldset>
-  <fieldset>
-      <legend>Playstyle</legend>
-   <div><input id=agressive type="radio" name="playstyle" value="Agressive" checked><label for=agressive>Agressive</label></div>
-      <div><input id=stealth type="radio" name="playstyle" value="Stealth"><label for=stealth>Stealth</label></div>
-      <div><input id=objective type="radio" name="playstyle" value="Objective"><label for=objective>Objective</label></div>
-  </fieldset>
-  <fieldset>
-  <legend>About <% user.username%> </legend>
+    <label class="label">Your Name</label>
+    <input class="input" name=name value= <%= user.name %> >
+
+  
+  <label class="label">Console </label>
+  <div><input class="input" id=playstation type="radio" name="console" value="playstation" checked><label for=playstation>Playsation</label></div>
+    <div><input class="input" id=xbox type="radio" name="console" value="xbox"><label for=xbox>Xbox</label></div>
+    <div><input class="input" id=pc type="radio" name="console" value="pc"><label for=pc>PC</label></div>
+    <div><input class="input" id=other type="radio" name="console" value="other"><label for=other>Other</label></div>
+  
+  
+    <label class="label">Looking for</label>
+      <div><input class="input" id=coop type="radio" name="gamemode" value="Coop" checked><label for=coop>Coop</label></div>
+      <div><input class="input" id=multiplayer type="radio" name="gamemode" value="Multiplayer"><label for=multiplayer>Multiplayer</label></div>
+  
+  
+      <label class="label">Playstyle</label>
+   <div><input class="input" id=agressive type="radio" name="playstyle" value="Agressive" checked><label for=agressive>Agressive</label></div>
+      <div><input class="input" id=stealth type="radio" name="playstyle" value="Stealth"><label for=stealth>Stealth</label></div>
+      <div><input class="input" id=objective type="radio" name="playstyle" value="Objective"><label for=objective>Objective</label></div>
+  
+  
+  <label class="label">About <% user.username%> </label>
   <textarea name=about rows=5><%= user.about %></textarea>
-  </fieldset>
-  <button type=submit class=btn-main>done</button>
-  </fieldset>
+  
+  <button type=submit class="button is-primary">done</button>
+  
 </form>
 </section>
 <%- include ('../partials/tail') %>

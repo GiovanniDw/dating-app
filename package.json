@@ -4,16 +4,12 @@
   "description": "Dating app Packages",
   "main": "server.js",
   "scripts": {
-    "build": "npm run build-clean && npm run build-sass && npm run build-autoprefix && npm run build-cleancss",
-    "build-autoprefix": "postcss --use autoprefixer --map false --output app/static/css/main.css app/static/css/main.css",
-    "build-clean": "rimraf css",
-    "build-cleancss": "cleancss -o app/static/css/main.min.css app/static/css/main.css",
-    "build-sass": "node-sass --output-style expanded --source-map true app/static/sass/main.sass app/static/css/main.css",
-    "deploy": "npm run build",
+    "css-build": "node-sass --omit-source-map-url app/static/sass/main.scss app/static/css/main.css",
+    "css-watch": "npm run css-build -- --watch",
     "test": "test",
     "start": "node server.js",
     "nmStart": "nodemon server.js",
-    "sassStart": "npm run build-sass -- --watch"
+    "sassStart": "npm run css-watch"
   },
   "repository": {
     "type": "git",
@@ -31,6 +27,7 @@
   "dependencies": {
     "apicalypse": "^0.1.6",
     "body-parser": "^1.19.0",
+    "bulma-extensions": "^6.2.7",
     "dotenv": "^8.2.0",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
@@ -43,11 +40,9 @@
     "passport-local-mongoose-email": "^0.1.4"
   },
   "devDependencies": {
+    "bulma": "^0.8.0",
     "ejs-lint": "^1.0.1",
-    "nodemon": "^2.0.2",
-    "autoprefixer": "^9.6.1",
-    "clean-css-cli": "^4.3.0",
     "node-sass": "^4.12.0",
-    
+    "nodemon": "^2.0.2"
   }
 }

@@ -1,29 +1,58 @@
 <%- include ('../partials/head') %>
+<title><%= title %></title>
 
-<header>
-  <nav class=top-nav>
-      <div class=left><a href=""></a></div>
-      <div class=right><a href=""></a></div>
-  </nav>
-  <h1>Gamer</h1>
+<body class=no-js>
+  
+<header class="hero">
+ 
+ <div class="hero-body">
+    <div class="container">
+    <nav>
+      <a class="button is-white"href="">Back</a>
+    </nav>
+      <h1 class="title">
+        Explore
+      </h1>
+    </div>
+  </div>
+  
 </header>
-<section>
+
 <% if (typeof user == 'object' && user) { %>
-  <h2>Welcome <%= user.name %> !</h2>
-  <p>In the future here will be some users you can like or dislike</p>
-
-
+ 
  <% for (var i = 0; i < users.length; i++) { %>
-        <li class="item">
         
-            <h3>  <%= users[i] %> </h3>
-          
-        </li>
+  <div class="card">
+    <div class="card-content">
+      <div class="media">
+        <div class="media-left">
+          <figure class="image is-48x48">
+            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+          </figure>
+        </div>
+        <div class="media-content">
+          <p class="title is-4"> <%= users[i].name %> </p>
+          <p class="subtitle is-6">hi</p>
+        </div>
+      </div>
+    <div class="content">
+          <%= users[i].about %>
+      </div>
+  </div>
+
+        
 <% } %>
 
 <% } else { %>
     <h2>Welcome!</h2>
 <% } %>
-</section>
+
 <%- include ('../partials/tail') %>
 
+
+        
+        
+      </div>
+    </div>
+
+    

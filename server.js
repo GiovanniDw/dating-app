@@ -11,7 +11,8 @@ const LocalStrategy = require('passport-local').Strategy;
 
 mongoose.connect(process.env.MONGO_DB, {
     dbName: process.env.DB_NAME,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 const db = mongoose.connection;
@@ -56,6 +57,7 @@ app.listen(port)
 
 function chat(req, res) {
     res.render('pages/chat', {
+         title: 'Chats',
         user: req.user
     })
 }
@@ -72,3 +74,5 @@ function error(req, res) {
         throw err
     })
 }
+
+

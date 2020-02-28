@@ -3,7 +3,7 @@ const User = require("../models/User");
 
 let authController = {};
 
-authController.isLoggedIn = function (req, res, next) {
+authController.isLoggedIn = async function (req, res, next) {
     if (req.isAuthenticated()) {
         next();
     } else {
@@ -13,7 +13,7 @@ authController.isLoggedIn = function (req, res, next) {
 // Restrict access to root page
 authController.home = function (req, res) {
 
-let users = User.find().all;
+
 
     if (req.user) {
         res.render('pages/index', {
@@ -34,9 +34,6 @@ authController.register = function (req, res) {
         res.render('pages/register');
     }
 };
-
-
-
 
 // Post registration
 authController.doRegister = function (req, res, next) {
