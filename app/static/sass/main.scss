@@ -57,8 +57,8 @@ ion-icon {
     padding-right: 1em;
 }
 
-.is-fixed-bottom {
-    padding-left: max(8px, env(safe-area-inset-left));
-    padding-right: max(8px, env(safe-area-inset-right));
-    padding-bottom: max(16px, env(safe-area-inset-bottom));
+.navbar-brand {
+    padding-left: calc(max(8px, env(safe-area-inset-left)));
+    padding-right: calc(max(8px, env(safe-area-inset-right)));
+    padding-bottom: calc(max(8px, env(safe-area-inset-bottom)));
 }

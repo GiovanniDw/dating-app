@@ -1,22 +1,54 @@
 <%- include ('../partials/head') %>
 <header>
-  <nav class=top-nav>
-    <div class="left buttons"><a class='back hidden'>back</a></div>
-    <h1>About You</h1>
-    <div class=right><a href="#"></a></div>
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1>TITLE</h1>
+      </div>
+    </div>
   </nav>
+
 </header>
 <section class="section">
   <div class="container">
     <form class='onboarding' action=/onboarding method=post>
-      <fieldset class='active'>
+      <fieldset>
         <legend>
-          <h2>What is your first name?</h2>
+          <h2 class="is-size-4">This is how others will see you</h2>
         </legend>
-        <input name=name placeholder='Your Name'>
-        <input class="input" name=picture type=file accept=image/*> </fieldset> <fieldset class="field">
+        <div class="field">
+
+
+
+
+
+
+          <input class="input" name=name placeholder='Your username'>
+
+
+
+
+          <div class="file is-boxed">
+            <label class="file-label">
+              <input class="file-input" name=picture type=file accept=image/*> <span class="file-cta">
+              <span class="file-icon">
+                <i class="fas fa-upload"></i>
+              </span>
+              <span class="file-label">
+                Upload a Profile pic
+              </span>
+              </span>
+            </label>
+          </div>
+
+
+
+
+        </div>
+      </fieldset>
+      <fieldset class="field">
         <legend>
-          <h2 class="title">Select your favorite platforms</h2>
+          <h2 class="is-size-4">Select your favorite platforms</h2>
         </legend>
 
         <% if (platforms.length) { %>
@@ -32,7 +64,7 @@
       </fieldset>
       <fieldset class="field">
         <legend>
-          <h2 class="title">Select your favorite Genres</h2>
+          <h2 class="is-size-4">Select your favorite Genres</h2>
         </legend>
 
         <% if (genres.length) { %>
@@ -50,13 +82,13 @@
 
       <fieldset class="field">
         <legend>
-          <h2 class="title">What should others know about you?</h2>
+          <h2 class="is-size-4">What should others know about you?</h2>
         </legend>
-        <textarea name=about rows=5 placeholder=""></textarea>
+        <textarea class="textarea" name=about rows=5 placeholder=""></textarea>
       </fieldset>
       <div class=buttons>
         <a class='next btn-main'>Next question</a>
-        <button type=submit class='btn-main submit'>done</button>
+        <button type=submit class='button is-primary'>done</button>
       </div>
     </form>
   </div>

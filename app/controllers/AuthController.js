@@ -12,9 +12,6 @@ authController.isLoggedIn = async function (req, res, next) {
 };
 // Restrict access to root page
 authController.home = function (req, res) {
-
-
-
     if (req.user) {
         res.render('pages/index', {
             user: req.user,
@@ -36,7 +33,7 @@ authController.register = function (req, res) {
 };
 
 // Post registration
-authController.doRegister = function (req, res, next) {
+authController.doRegister = async (req, res, next) => {
     User.register(new User({
         username: req.body.username,
         games: []
@@ -52,87 +49,14 @@ authController.doRegister = function (req, res, next) {
         })
     })
 };
-authController.onboarding = function (req, res) {
-    res.render('pages/onboarding', {
-        user: req.user,
-        platforms: [{
-                name: 'Computer',
-                value: 'computer'
-            },
-            {
-                name: 'Mobile',
-                value: 'mobile'
-            }, {
-                name: 'Xbox',
-                value: 'xbox'
-            }, {
-                name: 'Playstation',
-                value: 'playstation'
-            }, {
-                name: 'Switch',
-                value: 'switch'
-            }, {
-                name: 'Wii',
-                value: 'wii'
-            }
-        ],
-        genres: [{
-            name: 'Action',
-            value: 'action'
-        }, {
-            name: 'Adventure',
-            value: 'adventure'
-        }, {
-            name: 'Casual',
-            value: 'casual'
-        }, {
-            name: 'Fighting',
-            value: 'fighting'
-        }, {
-            name: 'Party',
-            value: 'party'
-        }, {
-            name: 'RPG',
-            value: 'rpg'
-        }, {
-            name: 'Sports',
-            value: 'sports'
-        }, {
-            name: 'Strategy',
-            value: 'strategy'
-        }]
-    })
-};
 
-
-authController.doOnboarding = function (req, res, next) {
-    User.findOneAndUpdate({
-        _id: req.user._id
-    }, {
-        $set: {
-            name: req.body.name,
-            platforms: req.body.platforms,
-            genres: req.body.genres,
-            about: req.body.about
-        }
-    }, done);
-
-    function done(err) {
-        if (err) {
-            next(err)
-        } else {
-
-            res.redirect('/profile')
-        }
-    }
-}
 // Go to login page
 authController.login = function (req, res) {
     res.render('pages/login');
 };
 // Post login
 authController.doLogin = passport.authenticate('local', {
-    successRedirect: '/profile',
+    successRedirect: '/',
     failureRedirect: '/login'
 });
 

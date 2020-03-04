@@ -5086,17 +5086,17 @@ label.panel-block {
   .tabs a {
     align-items: center;
     border-bottom-color: #dbdbdb;
-    border-bottom-style: none;
+    border-bottom-style: solid;
     border-bottom-width: 1px;
-    color: #fff;
+    color: #4a4a4a;
     display: flex;
     justify-content: center;
     margin-bottom: -1px;
     padding: 0.5em 1em;
     vertical-align: top; }
     .tabs a:hover {
-      border-bottom-color: none;
-      color: whitesmoke; }
+      border-bottom-color: #363636;
+      color: #363636; }
   .tabs li {
     display: block; }
     .tabs li.is-active a {
@@ -5105,7 +5105,7 @@ label.panel-block {
   .tabs ul {
     align-items: center;
     border-bottom-color: #dbdbdb;
-    border-bottom-style: none;
+    border-bottom-style: solid;
     border-bottom-width: 1px;
     display: flex;
     flex-grow: 1;
@@ -13208,3 +13208,8 @@ input[type=range].slider {
 .button.is-rounded {
   padding-left: 1em;
   padding-right: 1em; }
+
+.navbar-brand {
+  padding-left: calc(max(8px, env(safe-area-inset-left)));
+  padding-right: calc(max(8px, env(safe-area-inset-right)));
+  padding-bottom: calc(max(8px, env(safe-area-inset-bottom))); }

@@ -26,21 +26,43 @@
 <% for (var i = 0; i < users.length; i++) { %>
 <section class="section">
   <div class="container">
+
+
     <div class="card">
       <div class="card-content">
         <div class="media">
           <div class="media-left">
-            <figure class="image is-48x48">
+            <figure class="image is-128x128">
               <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
             </figure>
           </div>
           <div class="media-content">
             <p class="title is-4"> <%= users[i].name %> </p>
-            <p class="subtitle is-6">hi</p>
+
           </div>
         </div>
         <div class="content">
-          <%= users[i].about %>
+          <h3 class="title is-4">Platforms</h3>
+
+          <div class="tags are-medium">
+            <% for (var j = 0; j < users[i].platforms.length; j++) { %>
+            <span class="tag"><%= users[i].platforms[j] %></span>
+            <% } %>
+          </div>
+
+          <h3 class="title is-4">Genres</h3>
+
+
+          <div class="tags are-medium">
+            <% for (var j = 0; j < users[i].genres.length; j++) { %>
+            <span class="tag"><%= users[i].genres[j] %></span>
+            <% } %>
+          </div>
+
+
+          <h3 class="title is-4">About</h3>
+          <p class=""> <%= users[i].about %> </p>
+
         </div>
       </div>
     </div>
