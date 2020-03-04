@@ -1,26 +1,44 @@
 <%- include ('../partials/head') %>
 <header class=header>
-  <a href="/"><img class=logo src="/images/logo.svg"/></a>
+  <a href="/"><img class=logo src="/images/logo.svg" /></a>
   <h1>Gamer</h1>
 </header>
-<section>
-<form action=/login method=POST>
-  <fieldset class=margin-bottom-md>
-    <div class=login-register>
-      <a class=active href="login">Login</a>
-      <a href="register">Register</a>
-    </div>
 
-    <div class="field">
-    <label class=label>Email</label>
-    <input class="input" type=email name=username>
-    </div>
-    <label class=label>Password</label>
-    <input class=input type=password name=password>
-    <button type=submit class="btn-main btn-bottom">Login</button>
-  </fieldset>
-</form>
- </section>
- <%- include ('../partials/tail') %>
+<section class="section">
+  <div class="container">
 
- 
+    <div class="box">
+      <form action=/login method=POST>
+        <fieldset>
+          <div class="field">
+            <label class=label>Email</label>
+            <div class="control has-icons-left">
+              <input class="input" type=email name=username>
+              <span class="icon is-small is-left">
+                <ion-icon name="mail"></ion-icon>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <label class=label>Password</label>
+            <div class="control has-icons-left">
+              <input class=input type=password name=password>
+              <span class="icon is-small is-left">
+                <ion-icon name="lock-closed"></ion-icon>
+              </span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="control">
+              <button type=submit class="button is-fullwidth is-primary">Login</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+<%- include ('../partials/tail') %>

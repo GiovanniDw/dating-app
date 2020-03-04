@@ -13,10 +13,11 @@ profileController.profile = async function (req, res, next) {
             user: req.user,
             games: myGames
         })
-        
+
     } catch (err) {
         next(err);
     }
+
 
 }
 profileController.editProfile = function (req, res) {

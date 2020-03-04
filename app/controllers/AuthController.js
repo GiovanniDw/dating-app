@@ -54,7 +54,53 @@ authController.doRegister = function (req, res, next) {
 };
 authController.onboarding = function (req, res) {
     res.render('pages/onboarding', {
-        user: req.user
+        user: req.user,
+        platforms: [{
+                name: 'Computer',
+                value: 'computer'
+            },
+            {
+                name: 'Mobile',
+                value: 'mobile'
+            }, {
+                name: 'Xbox',
+                value: 'xbox'
+            }, {
+                name: 'Playstation',
+                value: 'playstation'
+            }, {
+                name: 'Switch',
+                value: 'switch'
+            }, {
+                name: 'Wii',
+                value: 'wii'
+            }
+        ],
+        genres: [{
+            name: 'Action',
+            value: 'action'
+        }, {
+            name: 'Adventure',
+            value: 'adventure'
+        }, {
+            name: 'Casual',
+            value: 'casual'
+        }, {
+            name: 'Fighting',
+            value: 'fighting'
+        }, {
+            name: 'Party',
+            value: 'party'
+        }, {
+            name: 'RPG',
+            value: 'rpg'
+        }, {
+            name: 'Sports',
+            value: 'sports'
+        }, {
+            name: 'Strategy',
+            value: 'strategy'
+        }]
     })
 };
 
@@ -65,9 +111,8 @@ authController.doOnboarding = function (req, res, next) {
     }, {
         $set: {
             name: req.body.name,
-            console: req.body.console,
-            gamemode: req.body.gamemode,
-            playstyle: req.body.playstyle,
+            platforms: req.body.platforms,
+            genres: req.body.genres,
             about: req.body.about
         }
     }, done);

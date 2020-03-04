@@ -1,17 +1,21 @@
 <h3 class="title is-4">Games</h3>
 
-    <ul class="columns is-1">
-   
-        <% for (var i = 0; i < games.length; i++) { %>
-        <li class="column">
-        
-            <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
-          
-        </li>
-        <% } %>
-         <li class="column is-one-third">
-            <img src="images/add-game.png" alt="">
-            <a href='/games' id="" class="icon add material-icons">search</a>
-        </li>
-    </ul>    
+<div class="columns is-mobile subtitle is-multiline">
 
+    <% for (var i = 0; i < games.length; i++) { %>
+    <div class="column">
+
+        <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+
+    </div>
+    <% } %>
+    <div class="column is-one-third">
+
+        <a href='/games' class="button is-small is-rounded">
+            <span class="icon is-small">
+                <ion-icon name="search-outline"></ion-icon>
+            </span>
+
+        </a>
+    </div>
+</div>

@@ -10,7 +10,8 @@ $brown: #757763;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 $blue: hsl(217, 71%, 53%);
-
+$link-invert:#fff;
+$link-invert-hover:hsl(0, 0%, 96%);
 // Update Bulma's global variables
 $family-sans-serif: "Roboto",
 sans-serif;
@@ -20,6 +21,10 @@ $primary: $blue;
 //$link: $pink;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+
+$padding: 1rem;
+
+$section-padding: $padding;
 
 // Update some of Bulma's component variables
 //$body-background-color: $beige-lighter;
@@ -31,11 +36,23 @@ $input-shadow: none;
 
 $tabs-link-hover-border-bottom-color: none;
 $tabs-border-bottom-style:none;
+
+$tabs-link-color: $link-invert;
+$tabs-link-hover-color:$link-invert-hover;
+
 ion-icon {
     font-size: 1.5rem;
 }
 
 @import "../../../node_modules/bulma/bulma.sass";
+@import "../../../node_modules/bulma-extensions/src/sass/index.sass";
+
+
 .button-back {
     padding-left: 0em;
+}
+
+.button.is-rounded {
+    padding-left: 1em;
+    padding-right: 1em;
 }

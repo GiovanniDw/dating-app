@@ -1,38 +1,56 @@
 <%- include ('../partials/head') %>
-<header>
-  
-<nav class=top-nav>
-    <div class=left><a href="/profile">back</a></div>
-  <h1>Search</h1>  
-    <div class=right><a href=""></a></div>
-    
-</nav>
-  
-  <form class="searchbar" action="/games/search/query" method="get">
-  <div class=searchbar-input-wrap>
-    <input type="search" id="mySearch" name="q" placeholder="Search">
-    <i class="material-icons">search</i>
+<section class="section">
+  <div class="container">
+    <div class="box">
+
+      <header>
+
+
+        <div class="delete"></div>
+        <form class="searchbar" action="/games/search/query" method="get">
+          <div class="field">
+            <div class="control has-icons-left">
+              <input class="input" type="search" id="mySearch" name="q" placeholder="Search">
+              <span class="icon is-small is-left">
+                <ion-icon name="search-outline"></ion-icon>
+              </span>
+            </div>
+
+
+          </div>
+        </form>
+
+
+      </header>
+
+      <section class="section">
+
+        <div class="columns is-mobile is-multiline">
+          <% for (var i = 0; i < games.length; i++) { %>
+          <div class="column is-one-third">
+
+            <figure class="image">
+              <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+              <h3 class="is-overlay "><%= games[i].title %></h3>
+              <form class="is-overlay" action="/games/add/<%= games[i].id %>" method="post">
+                <button data-id="<%= games[i].id %>" class="button is-rounded">
+                  <span class="icon">
+                    <ion-icon name="add"></ion-icon>
+                  </span>
+
+                </button>
+              </form>
+            </figure>
+
+          </div>
+          <% } %>
+        </div>
+
+      </section>
+    </div>
+
   </div>
-</form>
-</header>
-
-<section>
-    <ul class="games">
-        <% for (var i = 0; i < games.length; i++) { %>
-        <li class="item">
-        <h3><%= games[i].title %></h3>
-            <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
-            <form action="/games/add/<%= games[i].id %>" method="post">
-              <button id=js-remove
-                      data-id="<%= games[i].id %>"
-                      class="icon add material-icons">add</button>
-            </form>
-        </li>
-        <% } %>
-    </ul>    
 </section>
-
-
 
 
 <%- include ('../partials/tail') %>

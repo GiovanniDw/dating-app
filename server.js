@@ -57,7 +57,7 @@ app.listen(port)
 
 function chat(req, res) {
     res.render('pages/chat', {
-         title: 'Chats',
+        title: 'Chats',
         user: req.user
     })
 }
@@ -74,5 +74,3 @@ function error(req, res) {
         throw err
     })
 }
-
-

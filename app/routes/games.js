@@ -10,5 +10,3 @@ router.get('/search/:query?', auth.isLoggedIn, games.doSearch);
 router.post('/add/:id', auth.isLoggedIn, games.addGame);
 
 module.exports = router;
-
-

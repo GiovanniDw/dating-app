@@ -14,4 +14,3 @@ router.get('/edit', auth.isLoggedIn, profile.editProfile);
 router.post('/edit', upload.single('picture'), profile.doEditProfile);
 
 module.exports = router;
-
