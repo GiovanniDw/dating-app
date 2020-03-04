@@ -1,37 +1,41 @@
 <footer>
-    <nav class="tabs is-fullwidth navbar is-fixed-bottom is-primary">
-        <% if (typeof title != "undefined") { %>
-        <ul>
-            <li> <a href="/profile">
-                    <ion-icon name="person-circle<%_ if (title !== 'Profile') { %>-outline<% } else {} %>">
-                    </ion-icon>
-                </a> </li>
-            <li> <a href="/">
-                    <ion-icon name="compass<%_ if (title !== 'Discover') { %>-outline<% } %>"></ion-icon>
-                </a> </li>
-            <li> <a href="/chat">
-                    <ion-icon name="chatbubbles<%_ if (title !== 'Chats') { %>-outline<% } else {} %>">
-                    </ion-icon>
-                    </ion-icon>
-                </a> </li>
-        </ul>
+    <nav class="navbar is-fixed-bottom is-link" role="navigation">
+        <div class="navbar-brand">
+            <% if (typeof title != "undefined") { %>
 
-        <% } else { %>
-        <ul>
-            <li> <a href="/profile">
+            <a class="navbar-item is-expanded is-block has-text-centered" href="/profile">
+                <ion-icon name="person-circle<%_ if (title !== 'Profile') { %>-outline<% } else {} %>">
+                </ion-icon>
+                <p class="is-size-7">Profile</p>
+            </a>
+            <a class="navbar-item is-expanded is-block has-text-centered" href="/">
+                <ion-icon name="compass<%_ if (title !== 'Discover') { %>-outline<% } %>"></ion-icon>
+                <p class="is-size-7">Discover</p>
+            </a>
+            <a class="navbar-item is-expanded is-block has-text-centered" href="/chat">
+                <ion-icon name="chatbubbles<%_ if (title !== 'Chats') { %>-outline<% } else {} %>">
+                </ion-icon>
+                <p class="is-size-7">Chats</p>
+
+            </a>
+
+
+            <% } else { %>
+            <!-- <ul>
+          <a class="navbar-item is-expanded is-block has-text-centered" href="/profile">
                     <ion-icon name="person-circle-outline"></ion-icon>
-                </a> </li>
-            <li><a href="/">
+                </a> 
+        <a class="navbar-item is-expanded is-block has-text-centered" href="/">
                     <ion-icon name="compass-outline"></ion-icon>
-                </a> </li>
-            <li> <a href="/chat">
+                </a> </<a>
+          <a class="navbar-item is-expanded is-block has-text-centered" href="/chat">
                     <ion-icon name="chatbubbles-outline"></ion-icon>
-                </a> </li>
-        </ul>
+                </a> 
+        </ul> -->
 
-        <% } %>
+            <% } %>
 
-
+        </div>
     </nav>
 
 </footer>

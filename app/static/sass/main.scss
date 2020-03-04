@@ -34,11 +34,11 @@ $input-shadow: none;
 
 // nav tab bar
 
-$tabs-link-hover-border-bottom-color: none;
-$tabs-border-bottom-style:none;
+// $tabs-link-hover-border-bottom-color: none;
+// $tabs-border-bottom-style:none;
 
-$tabs-link-color: $link-invert;
-$tabs-link-hover-color:$link-invert-hover;
+// $tabs-link-color: $link-invert;
+// $tabs-link-hover-color:$link-invert-hover;
 
 ion-icon {
     font-size: 1.5rem;
@@ -55,4 +55,10 @@ ion-icon {
 .button.is-rounded {
     padding-left: 1em;
     padding-right: 1em;
+}
+
+.is-fixed-bottom {
+    padding-left: max(8px, env(safe-area-inset-left));
+    padding-right: max(8px, env(safe-area-inset-right));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
 }
