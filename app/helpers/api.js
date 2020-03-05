@@ -12,19 +12,43 @@ const requestOptions = {
 };
 const api = {};
 
+
+api.findPopular = async () => {
+    try {
+        const response = await request(requestOptions)
+            .fields('name,cover,rating,release_dates,platforms,popularity')
+            .limit(10)
+            // .sort('rating desc')
+            .sort('popularity desc')
+            .where('platforms = (48,49,6)')
+            .request('/games');
+        console.log(response.data)
+        return response.data;
+
+    } catch (err) {
+        throw new Error('Nope...');
+    }
+}
+
+
+
 api.searchGames = async (query) => {
     try {
         const response = await request(requestOptions)
-            .fields('name,cover')
+            .fields('name,cover,platforms')
             .limit(10) // limit to 50 results
             .search(query)
-            
+
             .request('/games');
+        console.log(response.data);
         return response.data;
     } catch (err) {
         throw new Error('Nope...');
     }
 };
+
+
+
 api.findCover = async (id, size) => {
     try {
         const response = await request(requestOptions)
@@ -54,4 +78,3 @@ api.findGameId = async (id) => {
 };
 
 module.exports = api;
-

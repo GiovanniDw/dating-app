@@ -1,35 +1,54 @@
 <%- include ('../partials/head') %>
-<header>
-
+<section class="section">
   <div class="container">
+    <div class="box">
 
-    <form class="searchbar" action="/games/search/query" method="get">
-      <div class="field">
-        <div class="control has-icons-left">
-          <input class="input" type="search" id="mySearch" name="q" placeholder="Search">
-          <span class="icon is-small is-left">
-            <ion-icon name="search-outline"></ion-icon>
-          </span>
+      <header>
+
+
+        <div class="delete"></div>
+        <form class="searchbar" action="/games/search/query" method="get">
+          <div class="field">
+            <div class="control has-icons-left">
+              <input class="input" type="search" id="mySearch" name="q" placeholder="Search">
+              <span class="icon is-small is-left">
+                <ion-icon name="search-outline"></ion-icon>
+              </span>
+            </div>
+
+
+          </div>
+        </form>
+
+
+      </header>
+
+      <section class="section">
+        <div class="columns is-mobile is-multiline">
+          <% for (var i = 0; i < games.length; i++) { %>
+          <div class="column is-one-third">
+
+            <figure class="image">
+              <h3><%= games[i].title %></h3>
+              <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+              <form class="is-overlay" action="/games/add/<%= games[i].id %>" method="post">
+                <button data-id="<%= games[i].id %>" class="button is-rounded">
+                  <span class="icon">
+                    <ion-icon name="add"></ion-icon>
+                  </span>
+
+                </button>
+              </form>
+            </figure>
+          </div>
+          <% } %>
         </div>
+      </section>
 
+    </div>
 
-      </div>
-    </form>
   </div>
-</header>
-<section>
-  <ul class="games">
-    <% for (var i = 0; i < popular.length; i++) { %>
-    <li class="item">
-      <h3><%= popular[i].title %></h3>
-      <img src="/uploads/<%= popular[i].cover %>" alt="<%= popular[i].title %>">
-      <button id=js-remove data-id="<%= popular[i]._id %>" class="icon add material-icons">add</button>
-    </li>
-    <% } %>
-  </ul>
 </section>
-
-
 
 
 <%- include ('../partials/tail') %>

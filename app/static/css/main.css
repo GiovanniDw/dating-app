@@ -13210,6 +13210,6 @@ input[type=range].slider {
   padding-right: 1em; }
 
 .navbar-brand {
-  padding-left: calc(max(8px, env(safe-area-inset-left)));
-  padding-right: calc(max(8px, env(safe-area-inset-right)));
-  padding-bottom: calc(max(8px, env(safe-area-inset-bottom))); }
+  padding-left: max(8px, env(safe-area-inset-left));
+  padding-right: max(8px, env(safe-area-inset-right));
+  padding-bottom: max(8px, env(safe-area-inset-bottom)); }

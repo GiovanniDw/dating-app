@@ -6,20 +6,45 @@ const SingleGame = require('../models/SingleGame');
 
 const gamesHelper = {}
 
-gamesHelper.search = async (query) => {
+gamesHelper.popular = async () => {
     try {
         const results = [];
-        const games = await api.searchGames(query);
+        const games = await api.findPopular();
         for (let i = 0; i < games.length; i++) {
             results.push(
-               new Promise(async function (resolve) {
+                new Promise(async function (resolve) {
                     const gameItem = {
                         id: games[i].id,
                         title: games[i].name,
                         cover: await api.findCover(games[i].cover, 'cover_big_2x')
                     };
                     resolve(gameItem);
-               })   
+                })
+            )
+
+        }
+        const gameItem = await Promise.all(results);
+
+        return gameItem;
+    } catch (err) {
+        throw new Error('No games today');
+    }
+}
+
+gamesHelper.search = async (query) => {
+    try {
+        const results = [];
+        const games = await api.searchGames(query);
+        for (let i = 0; i < games.length; i++) {
+            results.push(
+                new Promise(async function (resolve) {
+                    const gameItem = {
+                        id: games[i].id,
+                        title: games[i].name,
+                        cover: await api.findCover(games[i].cover, 'cover_big_2x')
+                    };
+                    resolve(gameItem);
+                })
             )
         }
         const gameItem = await Promise.all(results);
@@ -36,8 +61,8 @@ gamesHelper.findOne = async (id) => {
         if (game) {
             const gameItem = {
                 id: game.id,
-                    title: game.name,
-                    cover: await api.findCover(game.cover, 'cover_big_2x')
+                title: game.name,
+                cover: await api.findCover(game.cover, 'cover_big_2x')
             };
             return gameItem;
         } else {
@@ -58,15 +83,15 @@ gamesHelper.findGameId = (id) => {
         const db = mongoose.connection;
 
         db.on('error', (err) => reject(err));
-        db.once('open', async function (){
-                        try {
-                            let game = await SingleGame.findById(id);
-                            resolve(game);   
-                        } catch (err) {
-                            reject(err);
-                        }
+        db.once('open', async function () {
+            try {
+                let game = await SingleGame.findById(id);
+                resolve(game);
+            } catch (err) {
+                reject(err);
+            }
+        })
     })
-})
 }
 gamesHelper.save = (game) => {
     return new Promise((resolve, reject) => {
@@ -91,8 +116,8 @@ gamesHelper.save = (game) => {
                     cover: cover
                 });
                 newSingleGame.save(function (err, game) { // save the game and use the callback if done
-                if (err) reject(err); // if there is an error reject the promise and send the error back
-                else resolve(game); // if there is not an error resolve the promise
+                    if (err) reject(err); // if there is an error reject the promise and send the error back
+                    else resolve(game); // if there is not an error resolve the promise
                 });
             } catch (err) {
                 reject(err);

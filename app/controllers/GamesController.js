@@ -5,11 +5,20 @@ const gamesController = {};
 
 const games = [];
 
-gamesController.list = async function (req, res) {
-    res.render('pages/games', {
-        popular: games
-    })
+gamesController.list = async function (req, res, next) {
+    try {
+        // query is the input to search of the user
+        const response = await gamesHelper.popular();
+        res.render('pages/games', {
+            games: response
+        })
+    } catch (err) {
+        res.redirect('/games')
+        next(err);
+    }
 }
+
+
 
 gamesController.search = function (req, res) {
     res.render('pages/games', {

@@ -58,7 +58,7 @@ ion-icon {
 }
 
 .navbar-brand {
-    padding-left: calc(max(8px, env(safe-area-inset-left)));
-    padding-right: calc(max(8px, env(safe-area-inset-right)));
-    padding-bottom: calc(max(8px, env(safe-area-inset-bottom)));
+    padding-left: m#{a}x(8px, env(safe-area-inset-left));
+    padding-right: m#{a}x(8px, env(safe-area-inset-right));
+    padding-bottom: m#{a}x(8px, env(safe-area-inset-bottom));
 }
