@@ -5,7 +5,7 @@ const gamesController = {};
 
 const games = [];
 
-gamesController.list = async function (req, res, next) {
+gamesController.list = async (req, res, next) => {
     try {
         // query is the input to search of the user
         const response = await gamesHelper.popular();
@@ -20,13 +20,13 @@ gamesController.list = async function (req, res, next) {
 
 
 
-gamesController.search = function (req, res) {
+gamesController.search = (req, res) => {
     res.render('pages/games', {
         games: games
     })
 }
 
-gamesController.doSearch = async function (req, res, next) {
+gamesController.doSearch = async (req, res, next) => {
     try {
         const query = req.query.q; // query is the input to search of the user
         const response = await gamesHelper.search(query); // goes to gamesHelper search with the search querry. and saves results to response
@@ -39,7 +39,7 @@ gamesController.doSearch = async function (req, res, next) {
     }
 }
 
-gamesController.addGame = async function (req, res, next) {
+gamesController.addGame = async (req, res, next) => {
     const id = req.params.id;
     const user = req.user.id;
     try {
@@ -49,10 +49,10 @@ gamesController.addGame = async function (req, res, next) {
 
         if (checkDup == false || checkDup == null) {
             //if the id is not in DB, save to db and to user.
-            await gamesHelper.save(game);
-            await profileHelper.addGame(user, id);
+            gamesHelper.save(game);
+            profileHelper.addGame(user, id);
         } else {
-            await profileHelper.addGame(user, id);
+            profileHelper.addGame(user, id);
         }
 
         res.redirect('/profile');

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const games = require("../controllers/GamesController");
-const auth = require("../controllers/AuthController");
+const auth = require("../controllers/HomeController");
 
 router.get('/', auth.isLoggedIn, games.list);
 router.get('/search', auth.isLoggedIn, games.search);

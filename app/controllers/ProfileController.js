@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const db = require("../models");
 const profileHelper = require('../helpers/profile');
 
 let profileController = {};
@@ -24,6 +24,7 @@ let platformData = [{
         value: 'wii'
     }
 ]
+
 
 let genreData = [{
     name: 'Action',
@@ -51,7 +52,7 @@ let genreData = [{
     value: 'strategy'
 }]
 
-profileController.onboarding = function (req, res) {
+profileController.onboarding = (req, res) => {
     res.render('pages/onboarding', {
         user: req.user,
         platforms: platformData,
@@ -60,8 +61,8 @@ profileController.onboarding = function (req, res) {
 };
 
 
-profileController.doOnboarding = function (req, res, next) {
-    User.findOneAndUpdate({
+profileController.doOnboarding = (req, res, next) => {
+    db.User.findOneAndUpdate({
         _id: req.user._id
     }, {
         $set: {
@@ -85,7 +86,7 @@ profileController.doOnboarding = function (req, res, next) {
 
 
 
-profileController.profile = async function (req, res, next) {
+profileController.profile = async (req, res, next) => {
     let myGames = [];
     try {
         const userID = req.user.id;
@@ -102,13 +103,13 @@ profileController.profile = async function (req, res, next) {
 
 
 }
-profileController.editProfile = function (req, res) {
+profileController.editProfile = (req, res) => {
     res.render('pages/edit', {
         user: req.user
     });
 }
 
-profileController.doEditProfile = function (req, res, next) {
+profileController.doEditProfile = (req, res, next) => {
     User.findOneAndUpdate({
         _id: req.user._id
     }, {

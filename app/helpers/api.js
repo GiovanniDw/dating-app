@@ -22,7 +22,7 @@ api.findPopular = async () => {
             .sort('popularity desc')
             .where('platforms = (48,49,6)')
             .request('/games');
-        console.log(response.data)
+
         return response.data;
 
     } catch (err) {
@@ -40,7 +40,7 @@ api.searchGames = async (query) => {
             .search(query)
 
             .request('/games');
-        console.log(response.data);
+
         return response.data;
     } catch (err) {
         throw new Error('Nope...');

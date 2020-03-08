@@ -1,21 +1,51 @@
 <%- include ('../partials/head') %>
 <header class=header>
-  <a href="/"><img class=logo src="/images/logo.svg"/></a>
+  <a href="/"><img class=logo src="/images/logo.svg" /></a>
   <h1>Gamer</h1>
 </header>
-<section>
-  <form action=/register method=post>
-    <fieldset class=register>
-      <div class=login-register>
-            <a href="login">Login</a>
-            <a class=active href="register">Register</a>
+<section class="section">
+  <div class="container">
+
+    <div class="box">
+      <div class="tabs">
+        <ul>
+          <li><a href="/login">Login</a></li>
+          <li class="is-active"><a href="/register">Signup</a></li>
+
+        </ul>
       </div>
-      <label>Email</label>
-        <input type=email name=username>
-      <label>Password</label>
-        <input type=password name=password>
-      <button type=submit class="btn-main btn-bottom">Sign Up</button>
-    </fieldset>
-  </form>
+      <form action=/register method=post>
+        <fieldset>
+          <% if (flash) { %>
+          <p> <%= flash %> </p>
+          <% } %>
+          <div class="field">
+            <label class=label>Email</label>
+            <div class="control has-icons-left">
+              <input class="input" type=email name=username>
+              <span class="icon is-small is-left">
+                <ion-icon name="mail"></ion-icon>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class=label>Password</label>
+            <div class="control has-icons-left">
+              <input class=input type=password name=password>
+              <span class="icon is-small is-left">
+                <ion-icon name="lock-closed"></ion-icon>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <div class="control">
+              <button type=submit class="button is-fullwidth is-primary">Sign Up</button>
+            </div>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+  </div>
 </section>
 <%- include ('../partials/tail') %>

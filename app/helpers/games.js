@@ -1,7 +1,7 @@
 const api = require('../helpers/api');
 const mongoose = require('mongoose');
 
-const SingleGame = require('../models/SingleGame');
+const db = require('../models');
 
 
 const gamesHelper = {}
@@ -72,62 +72,41 @@ gamesHelper.findOne = async (id) => {
         throw new Error('Game by id not found')
     }
 }
-gamesHelper.findGameId = (id) => {
-    return new Promise((resolve, reject) => {
+gamesHelper.findGameId = async (id) => {
 
-        mongoose.connect(process.env.MONGO_DB, {
-            dbName: process.env.DB_NAME,
-            useNewUrlParser: true
-        });
-
-        const db = mongoose.connection;
-
-        db.on('error', (err) => reject(err));
-        db.once('open', async function () {
-            try {
-                let game = await SingleGame.findById(id);
-                resolve(game);
-            } catch (err) {
-                reject(err);
-            }
-        })
-    })
-}
+    try {
+        let game = await db.SingleGame.findById(id);
+        return (game);
+    } catch (err) {
+        next(err);
+    }
+};
 gamesHelper.save = (game) => {
-    return new Promise((resolve, reject) => {
-        const {
-            id,
-            title,
-            cover
-        } = game;
-        mongoose.connect(process.env.MONGO_DB, {
-            dbName: process.env.DB_NAME,
-            useNewUrlParser: true
+
+    const {
+        id,
+        title,
+        cover
+    } = game;
+
+
+    try {
+        let newSingleGame = new db.SingleGame({
+            _id: id,
+            title: title,
+            cover: cover
         });
+        newSingleGame.save(function (err, game) { // save the game and use the callback if done
+            return game; // if there is not an error resolve the promise
+        });
+    } catch (err) {
+        next(err);
+    }
 
-        const db = mongoose.connection;
-
-        db.on('error', (err) => reject(err));
-        db.once('open', async function () {
-            try {
-                let newSingleGame = new SingleGame({
-                    _id: id,
-                    title: title,
-                    cover: cover
-                });
-                newSingleGame.save(function (err, game) { // save the game and use the callback if done
-                    if (err) reject(err); // if there is an error reject the promise and send the error back
-                    else resolve(game); // if there is not an error resolve the promise
-                });
-            } catch (err) {
-                reject(err);
-            }
-
-        })
-    })
 };
 
 // gamesHelper.addGame = async (userID, id) => {
+
 
 //     try{
 //         const gameID = await api.findGameId(id);

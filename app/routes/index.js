@@ -1,20 +1,11 @@
-let express = require('express');
-let router = express.Router();
-let auth = require("../controllers/AuthController.js");
-let match = require("../controllers/MatchController.js");
-let profile = require("../controllers/ProfileController.js");
+const express = require('express');
 
-router.get('/', auth.isLoggedIn, match.show);
+const router = express.Router();
 
-router.get('/register', auth.register);
-router.post('/register', auth.doRegister);
+// add HTML routes to current router
+router.use('/games', require('./gamesRoutes'));
+router.use('/profile', require('./profileRoutes'));
 
-router.get('/onboarding', auth.isLoggedIn, profile.onboarding);
-router.post('/onboarding', auth.isLoggedIn, profile.doOnboarding);
-
-router.get('/login', auth.login);
-router.post('/login', auth.doLogin);
-
-router.get('/logout', auth.logout);
+router.use(require('./homeRoutes'));
 
 module.exports = router;
