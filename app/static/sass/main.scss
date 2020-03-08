@@ -15,10 +15,10 @@ $link-invert-hover:hsl(0, 0%, 96%);
 // Update Bulma's global variables
 $family-sans-serif: "Roboto",
 sans-serif;
-//$grey-dark: $brown;
-//$grey-light: $beige-light;
+
+
 $primary: $blue;
-//$link: $pink;
+
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
@@ -27,17 +27,15 @@ $padding: 1rem;
 $section-padding: $padding;
 
 // Update some of Bulma's component variables
-//$body-background-color: $beige-lighter;
-$control-border-width: 2px;
-//$input-border-color: transparent;
+
+$control-border-width: 1px;
+
 $input-shadow: none;
 
 // nav tab bar
 
 // $tabs-link-hover-border-bottom-color: none;
 // $tabs-border-bottom-style:none;
-
-// $tabs-link-color: $link-invert;
 // $tabs-link-hover-color:$link-invert-hover;
 
 ion-icon {

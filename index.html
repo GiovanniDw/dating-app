@@ -1,187 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="en" class="has-navbar-fixed-bottom">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="app/static/css/main.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./app/static/css/main.css">
+    <title>Styleguide</title>
 </head>
+
 <body>
-<header class="hero">
+    <header class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
 
-    <div class="hero-body">
+                <h1 class="title">
+                    Styleguide
+                </h1>
+            </div>
+        </div>
+    </header>
+    <section class="section">
         <div class="container">
-            <nav>
-                <a class="button button-back is-white" href="">
-                    <ion-icon name="chevron-back-outline"></ion-icon>Back
+            <p class="title is-1">Typography</p>
+            <p class="title is-2">Headings</p>
+            <p class="subtitle is-4">Roboto</p>
+            <p class="title is-2">Body</p>
+            <p class="subtitle">Roboto</p>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <p class="title is-1">Profile</p>
+            <div class="card">
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-128x128">
+                                <img class="is-rounded" src="https://i.pravatar.cc/300">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <h2 class="title">Jhon</h2>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3 class="title is-4">Games</h3>
+                        <div class="columns is-mobile is-multiline">
+                            <div class="column is-one-third">
+                                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co1re6.png"
+                                    alt="Borderlands 3">
+                            </div>
+                            <div class="column is-one-third">
+                                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big_2x/co1re8.png"
+                                    alt="Immortal: Unchained">
+                            </div>
+                            <div class="column is-one-third">
+                                <a href="/games" class="button is-small is-rounded">
+                                    <span class="icon is-small">
+                                        <ion-icon name="search-outline" role="img" class="md hydrated"
+                                            aria-label="search outline"></ion-icon>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <h3 class="title is-4">Platforms</h3>
+                        <div class="tags are-medium">
+                            <span class="tag">Mobile</span>
+                            <span class="tag">Xbox</span>
+                            <span class="tag">Playstation</span>
+                        </div>
+                        <h3 class="title is-4">Genres</h3>
+
+                        <div class="tags are-medium">
+                            <span class="tag">Adventure</span>
+                            <span class="tag">Casual</span>
+                            <span class="tag">Fighting</span>
+                        </div>
+                        <h3 class="title is-4">About</h3>
+                        <p class="">Hi, My name is Jhon. I'd like to meet new people</p>
+                        <div>
+                            <form action="/like">
+                                <button class="button is-large is-rounded">
+                                    <span class="icon is-large">
+                                        <ion-icon name="thumbs-down"></ion-icon>
+                                    </span>
+                                </button>
+                                <button class="button is-large is-rounded">
+                                    <span class="icon is-large">
+                                        <ion-icon name="thumbs-up"></ion-icon>
+                                    </span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <nav class="navbar is-fixed-bottom is-link" role="navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item is-expanded is-block has-text-centered" href="/profile">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                    <p class="is-size-7">Profile</p>
                 </a>
-            </nav>
-            <h1 class="title">
-                Styleguide
-            </h1>
-        </div>
-    </div>
-
-</header>
-
-<section class="section">
-<div class="container">
-    <p class="title is-1">Typography</p>
-<p class="title is-1">Title 1</p>
-<p class="subtitle is-3">Subtitle 3</p>
-
-<p class="title is-2">Title 2</p>
-<p class="subtitle is-4">Subtitle 4</p>
-
-<p class="title is-3">Title 3</p>
-<p class="subtitle is-5">Subtitle 5</p>
-<p>Body Text</p>
-</div>
-</section>
-
-
-<section class="section">
-    <div class="container">
-<p class="title is-1">Form elements</p>
-<div class="buttons">
-    <button class="button is-primary">Primary</button>
-    <button class="button is-link">Link</button>
-</div>
-   
-
-<div class="field">
-    <label class="label">Name</label>
-    <div class="control">
-        <input class="input" type="text" placeholder="Text input">
-    </div>
-</div>
-
-<div class="field">
-    <label class="label">Username</label>
-    <div class="control has-icons-left has-icons-right">
-        <input class="input is-success" type="text" placeholder="Text input" value="bulma">
-        <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-        </span>
-        <span class="icon is-small is-right">
-            <i class="fas fa-check"></i>
-        </span>
-    </div>
-    <p class="help is-success">This username is available</p>
-</div>
-
-<div class="field">
-    <label class="label">Email</label>
-    <div class="control has-icons-left has-icons-right">
-        <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-        <span class="icon is-small is-left">
-            <i class="fas fa-envelope"></i>
-        </span>
-        <span class="icon is-small is-right">
-            <i class="fas fa-exclamation-triangle"></i>
-        </span>
-    </div>
-    <p class="help is-danger">This email is invalid</p>
-</div>
-
-<div class="field">
-    <label class="label">Subject</label>
-    <div class="control">
-        <div class="select">
-            <select>
-                <option>Select dropdown</option>
-                <option>With options</option>
-            </select>
-        </div>
-    </div>
-</div>
-
-<div class="field">
-    <label class="label">Message</label>
-    <div class="control">
-        <textarea class="textarea" placeholder="Textarea"></textarea>
-    </div>
-</div>
-
-<div class="field">
-    <div class="control">
-        <label class="checkbox">
-            <input type="checkbox">
-            I agree to the <a href="#">terms and conditions</a>
-        </label>
-    </div>
-</div>
-
-<div class="field">
-    <div class="control">
-        <label class="radio">
-            <input type="radio" name="question">
-            Yes
-        </label>
-        <label class="radio">
-            <input type="radio" name="question">
-            No
-        </label>
-    </div>
-</div>
-
-<div class="field is-grouped">
-    <div class="control">
-        <button class="button is-link">Submit</button>
-    </div>
-    <div class="control">
-        <button class="button is-link is-light">Cancel</button>
-    </div>
-</div>
-</section>
-
-<section class="section">
-    <div class="container">
-        <p class="title is-1">Card</p>
-  <div class="card">
-      <div class="card-content">
-          <div class="media">
-              <div class="media-left">
-                  <figure class="image is-48x48">
-                      <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                  </figure>
-              </div>
-              <div class="media-content">
-                  <p class="title is-4">Name</p>
-                  <p class="subtitle is-6">info</p>
-              </div>
-          </div>
-          <div class="content">
-              About
-          </div>
-      </div>
-  </div>
-</div>  
-</section>
-  <footer>
-     
-
-      <nav class="tabs is-fullwidth navbar is-fixed-bottom">
-
-          <ul>
-              <li><a href="/profile">
-                      <ion-icon name="person-circle-outline"></ion-icon>
-                  </a></li>
-              <li><a href="/">
-                      <ion-icon name="compass-outline"></ion-icon>
-                  </a></li>
-              <li><a href="/chat">
-                      <ion-icon name="chatbubbles-outline"></ion-icon>
-                      </ion-icon>
-                  </a></li>
-          </ul>
-      </nav>
-  </footer>
-  <script src="app/static/js/main.js"></script>
-  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
-  
-
+                <a class="navbar-item is-expanded is-block has-text-centered" href="/">
+                    <ion-icon name="compass-outline"></ion-icon>
+                    <p class="is-size-7">Discover</p>
+                </a>
+                <a class="navbar-item is-expanded is-block has-text-centered" href="/chat">
+                    <ion-icon name="chatbubbles-outline"></ion-icon>
+                    <p class="is-size-7">Chats</p>
+                </a>
+            </div>
+        </nav>
+    </footer>
+    <script src="/js/main.js"></script>
+    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
-</html>
 
+</html>
