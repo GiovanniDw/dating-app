@@ -4,26 +4,29 @@ const db = require('../models');
 const profileHelper = {};
 
 
-profileHelper.saveInfo = (info) => {
+profileHelper.saveInfo = (userID, userInfo) => {
     return new Promise(async (resolve, reject) => {
+        let {
+            username,
+            platform,
+            genre,
+            about,
+            picture
+        } = userInfo
         try {
-            const user = await db.User.findOneAndUpdate({
-                _id: req.user._id
-            }, {
-                $set: {
-                    name: info.name,
-                    platforms: info.platforms,
-                    genres: info.genres,
-                    picture: req.file ? req.file.filename : null,
-                    about: info.about
-                }
+            const user = await db.User.findById(userID);
+            let userInfoo = ({
+                username: username,
+                platforms: platform,
+                genre: genre,
+                about: about,
+                picture: picture
             });
+            user.username.push(userInfo.username);
             await user.save();
             resolve(user);
         } catch (err) {
-            reject({
-                type: 'error'
-            });
+            reject(err);
         };
     });
 };

@@ -25,12 +25,14 @@ $fullhd-enabled: false;
 $padding: 1rem;
 
 $section-padding: $padding;
-
+$hero-body-padding: 3rem 1rem;
 // Update some of Bulma's component variables
 
 $control-border-width: 1px;
 
 $input-shadow: none;
+
+
 
 // nav tab bar
 
@@ -46,17 +48,57 @@ ion-icon {
 @import "../../../node_modules/bulma-extensions/src/sass/index.sass";
 
 
-.button-back {
-    padding-left: 0em;
-}
+// .button-back {
+//     padding-left: 0em;
+// }
 
 .button.is-rounded {
     padding-left: 1em;
     padding-right: 1em;
 }
 
-.navbar-brand {
+.is-fixed-bottom .navbar-brand {
     padding-left: m#{a}x(8px, env(safe-area-inset-left));
     padding-right: m#{a}x(8px, env(safe-area-inset-right));
     padding-bottom: m#{a}x(8px, env(safe-area-inset-bottom));
+}
+
+.navbar.is-fixed-bottom {
+    display: inline-block;
+}
+
+.navbar.is-fixed-top {
+    align-items: stretch;
+    display: flex;
+    justify-content: space-between;
+}
+
+.is-fixed-top .navbar-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-menu {
+    flex-grow: 1;
+}
+
+.navbar-start {
+    justify-content: flex-start;
+    margin-right: auto;
+
+}
+
+.navbar-center {
+    justify-content: center;
+    // margin: 0 auto;
+    align-self: center;
+
+
+}
+
+.navbar-end {
+    justify-content: flex-end;
+    margin-left: auto;
+
 }

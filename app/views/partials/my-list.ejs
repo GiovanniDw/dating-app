@@ -4,9 +4,9 @@
 
     <% for (var i = 0; i < games.length; i++) { %>
     <div class="column is-one-third">
-
-        <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
-
+        <figure class="image is-marginless">
+            <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+        </figure>
     </div>
     <% } %>
     <div class="column is-one-third">

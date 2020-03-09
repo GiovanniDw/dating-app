@@ -2,13 +2,50 @@
 
 
 <header>
-    <nav class=top-nav>
-        <div class=left><a href=""></a></div>
-        <div class=right><a href=""></a></div>
+    <nav class="navbar is-fixed-top">
+
+        <div class="navbar-menu is-flex is-shadowless">
+            <div class="navbar-start">
+                <div class="navbar-item">
+                    <%_ if (title == 'Profile') { %>
+                    <a class="navbar-link is-arrowless">
+                        Back
+                    </a>
+                    <% } else {} %>
+
+                </div>
+            </div>
+            <div class="navbar-center">
+                <div class="navbar-item">
+                    <!-- <h1 class="title">
+            Title
+          </h1> -->
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <%_ if (title == 'Profile') { %>
+                    <a class="navbar-link is-arrowless">
+                        Edit
+                    </a>
+                    <% } else {} %>
+
+                </div>
+            </div>
+        </div>
     </nav>
-    <h1>Chats</h1>
+    <section class="hero">
+        <div class="hero-body">
+            <h1 class="title">
+                Chats
+            </h1>
+
+        </div>
+    </section>
 </header>
-<section>
-    <h2>If you get some matches they will appear here !</h2>
+<section class="section">
+    <div class="container">
+        <h2>If you get some matches they will appear here !</h2>
+    </div>
 </section>
 <%- include ('../partials/tail') %>

@@ -4,21 +4,46 @@
 
 
 <header>
-    <nav class="navbar is-fixed-top is-light">
-        <div class="navbar-menu">
-            <div class="navbar-start">
-                <div class="navbar-link is-active">
-                    <a class="navbar-item" href="/profile">
+    <nav class="navbar is-fixed-top">
 
-                        <p class="is-size-6">Profile</p>
+        <div class="navbar-menu is-flex is-shadowless">
+            <div class="navbar-start">
+                <div class="navbar-item">
+                    <%_ if (title == 'Search') { %>
+                    <a class="navbar-link is-arrowless">
+                        Back
                     </a>
+                    <% } else {} %>
+
+                </div>
+            </div>
+            <div class="navbar-center">
+                <div class="navbar-item">
+                    <!-- <h1 class="title">
+            Title
+          </h1> -->
+                </div>
+            </div>
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <%_ if (title == 'Profile') { %>
+                    <a class="navbar-link is-arrowless">
+                        Edit
+                    </a>
+                    <% } else {} %>
+
                 </div>
             </div>
         </div>
     </nav>
+    <section class="hero">
+        <div class="hero-body">
+            <h1 class="title">
+                Profile
+            </h1>
 
-
-
+        </div>
+    </section>
 </header>
 <section class=section>
     <div class=container>
@@ -26,54 +51,54 @@
 
 
 
-        <div class=card>
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-left">
-                        <figure class="image is-128x128">
-                            <img class=is-rounded src="/uploads/<%= user.picture %> ">
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <h2 class=title><%= user.name %></h2>
 
-                    </div>
+        <div class="card-content">
+            <div class="media">
+                <div class="media-left">
+                    <figure class="image is-128x128">
+                        <img class=is-rounded src="/uploads/<%= user.picture %> ">
+                    </figure>
                 </div>
-
-                <div class="content">
-                    <%- include ('../partials/my-list') %>
-                    <h3 class="title is-4">Platforms</h3>
-
-                    <div class="tags are-medium">
-                        <% for (var i = 0; i < user.platforms.length; i++) { %>
-                        <span class="tag"><%= user.platforms[i] %></span>
-                        <% } %>
-                    </div>
-
-                    <h3 class="title is-4">Genres</h3>
-
-
-                    <div class="tags are-medium">
-                        <% for (var i = 0; i < user.genres.length; i++) { %>
-                        <span class="tag"><%= user.genres[i] %></span>
-                        <% } %>
-                    </div>
-
-
-                    <h3 class="title is-4">About</h3>
-                    <p class=""> <%= user.about %> </p>
-
+                <div class="media-content">
+                    <h2 class=title><%= user.name %></h2>
 
                 </div>
             </div>
 
+            <div class="content">
+                <%- include ('../partials/my-list') %>
+                <h3 class="title is-4">Platforms</h3>
+
+                <div class="tags are-medium">
+                    <% for (var i = 0; i < user.platforms.length; i++) { %>
+                    <span class="tag is-rounded is-primary is-light"><%= user.platforms[i] %></span>
+                    <% } %>
+                </div>
+
+                <h3 class="title is-4">Genres</h3>
 
 
-            <a class='button is-primary' href="/logout">Logout</a>
-            <% } else { %>
-            <h2>Hi Nobody!</h2>
-            <% } %>
+                <div class="tags are-medium">
+                    <% for (var i = 0; i < user.genres.length; i++) { %>
+                    <span class="tag is-rounded is-primary is-light"><%= user.genres[i] %></span>
+                    <% } %>
+                </div>
+
+
+                <h3 class="title is-4">About</h3>
+                <p class=""> <%= user.about %> </p>
+
+                <a class='button is-primary' href="/logout">Logout</a>
+            </div>
         </div>
+
+
+
+
+        <% } else { %>
+        <h2>Hi Nobody!</h2>
+        <% } %>
+    </div>
 </section>
 
 

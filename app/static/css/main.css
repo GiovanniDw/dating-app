@@ -13202,14 +13202,39 @@ input[type=range].slider {
   .is-tooltip-left-desktop:focus::before, .is-tooltip-left-desktop:hover::before, .is-tooltip-left-desktop.is-tooltip-active::before {
     transform: translate(-0.5rem, 50%) !important; } }
 
-.button-back {
-  padding-left: 0em; }
-
 .button.is-rounded {
   padding-left: 1em;
   padding-right: 1em; }
 
-.navbar-brand {
+.is-fixed-bottom .navbar-brand {
   padding-left: max(8px, env(safe-area-inset-left));
   padding-right: max(8px, env(safe-area-inset-right));
   padding-bottom: max(8px, env(safe-area-inset-bottom)); }
+
+.navbar.is-fixed-bottom {
+  display: inline-block; }
+
+.navbar.is-fixed-top {
+  align-items: stretch;
+  display: flex;
+  justify-content: space-between; }
+
+.is-fixed-top .navbar-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.navbar-menu {
+  flex-grow: 1; }
+
+.navbar-start {
+  justify-content: flex-start;
+  margin-right: auto; }
+
+.navbar-center {
+  justify-content: center;
+  align-self: center; }
+
+.navbar-end {
+  justify-content: flex-end;
+  margin-left: auto; }

@@ -10,7 +10,8 @@ gamesController.list = async (req, res, next) => {
         // query is the input to search of the user
         const response = await gamesHelper.popular();
         res.render('pages/games', {
-            games: response
+            games: response,
+            title: 'Search'
         })
     } catch (err) {
         res.redirect('/games')
@@ -30,8 +31,9 @@ gamesController.doSearch = async (req, res, next) => {
     try {
         const query = req.query.q; // query is the input to search of the user
         const response = await gamesHelper.search(query); // goes to gamesHelper search with the search querry. and saves results to response
-        res.render('pages/search', {
-            games: response // games rendered to view.
+        res.render('pages/games', {
+            games: response, // games rendered to view.
+            title: 'Search'
         })
     } catch (err) {
         res.redirect('/games')
