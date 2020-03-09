@@ -34,8 +34,8 @@ function chat(req, res) {
     res.render('pages/chat', {
         title: 'Chats',
         user: req.user
-    })
-}
+    });
+};
 
 app.use((error, req, res, next) => {
     console.error(error);

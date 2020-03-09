@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 module.exports = () => {
-    let MONGODB_URI = "mongodb+srv://giovanni:giovanni@dating-rkiyp.mongodb.net/test?retryWrites=true&w=majority";
 
     mongoose.Promise = global.Promise;
 
