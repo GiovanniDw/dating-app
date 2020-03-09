@@ -1,8 +1,4 @@
-
-#Dating APP 
- 
-=======
-# Dating App
+# Party Finder
 The research of this project will be documented in the [Wiki](https://github.com/GiovanniDw/dating-app/wiki)
 
 _This info will be updated_
