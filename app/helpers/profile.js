@@ -22,7 +22,7 @@ profileHelper.saveInfo = (userID, userInfo) => {
                 about: about,
                 picture: picture
             });
-            user.username.push(userInfo.username);
+            user.username.addToSet(userInfo.username);
             await user.save();
             resolve(user);
         } catch (err) {

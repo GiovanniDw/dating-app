@@ -2,52 +2,98 @@
 
 
 <header>
-<nav class=top-nav>
-   <div class=left><a href="/profile">back</a></div>
-<h2>Edit</h2>    
-    <div class=right><a href="#"></a></div>
-    
-</nav>
+  <nav class="navbar" role="navigation">
+    <div class="navbar-brand">
+      <div class="navbar-item">
+        <h1></h1>
+      </div>
+    </div>
+  </nav>
+
 </header>
-<section class="section">    
-<form class=edit action=edit method=post enctype=multipart/form-data>
 
 
-<label class="label">Profile Picture</label>
-  <input class="input" name=picture type=file accept=image/*>
-  
-  
-  <label class="label">Your Email</label>
-  <input class="input" name=username value= <%= user.username %> readonly>
-  
-  <fieldset class='active'>
-    <label class="label">Your Name</label>
-    <input class="input" name=name value= <%= user.name %> >
+<section class="section">
+  <div class="container">
+    <form class=edit action=edit method=post enctype=multipart/form-data> <fieldset>
+      <legend>
+        <h2 class="is-size-4">This is how others will see you</h2>
+      </legend>
+      <div class="field">
 
-  
-  <label class="label">Console </label>
-  <div><input class="input" id=playstation type="radio" name="console" value="playstation" checked><label for=playstation>Playsation</label></div>
-    <div><input class="input" id=xbox type="radio" name="console" value="xbox"><label for=xbox>Xbox</label></div>
-    <div><input class="input" id=pc type="radio" name="console" value="pc"><label for=pc>PC</label></div>
-    <div><input class="input" id=other type="radio" name="console" value="other"><label for=other>Other</label></div>
-  
-  
-    <label class="label">Looking for</label>
-      <div><input class="input" id=coop type="radio" name="gamemode" value="Coop" checked><label for=coop>Coop</label></div>
-      <div><input class="input" id=multiplayer type="radio" name="gamemode" value="Multiplayer"><label for=multiplayer>Multiplayer</label></div>
-  
-  
-      <label class="label">Playstyle</label>
-   <div><input class="input" id=agressive type="radio" name="playstyle" value="Agressive" checked><label for=agressive>Agressive</label></div>
-      <div><input class="input" id=stealth type="radio" name="playstyle" value="Stealth"><label for=stealth>Stealth</label></div>
-      <div><input class="input" id=objective type="radio" name="playstyle" value="Objective"><label for=objective>Objective</label></div>
-  
-  
-  <label class="label">About <% user.username%> </label>
-  <textarea name=about rows=5><%= user.about %></textarea>
-  
-  <button type=submit class="button is-primary">done</button>
-  
-</form>
+
+
+
+
+
+        <input class="input" name=name placeholder='Your username'>
+
+
+
+
+        <div class="file is-boxed">
+          <label class="file-label">
+            <input class="file-input" name=picture type=file accept=image/*> <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Upload a Profile pic
+            </span>
+            </span>
+          </label>
+        </div>
+
+
+
+
+      </div>
+      </fieldset>
+      <fieldset class="field">
+        <legend>
+          <h2 class="is-size-4">Select your favorite platforms</h2>
+        </legend>
+
+        <% if (platforms.length) { %>
+        <% platforms.forEach(function(platform){ %>
+        <div class="field">
+          <input class="is-checkradio" id="<%= platform.value %>" type="checkbox" name="platforms"
+            value="<%= platform.name %>">
+          <label for="<%= platform.value %>"><%= platform.name %> </label>
+        </div>
+        <% }) %>
+        <% } %>
+
+      </fieldset>
+      <fieldset class="field">
+        <legend>
+          <h2 class="is-size-4">Select your favorite Genres</h2>
+        </legend>
+
+        <% if (genres.length) { %>
+        <% genres.forEach(function(genre){ %>
+        <div class="field">
+          <input class="is-checkradio" id="<%= genre.value %>" type="checkbox" name="genres" value="<%= genre.name %>">
+          <label for="<%= genre.value %>"><%= genre.name %> </label>
+        </div>
+        <% }) %>
+        <% } %>
+
+      </fieldset>
+
+
+
+      <fieldset class="field">
+        <legend>
+          <h2 class="is-size-4">What should others know about you?</h2>
+        </legend>
+        <textarea class="textarea" name=about rows=5 placeholder=""></textarea>
+      </fieldset>
+      <div class=buttons>
+        <a class='next btn-main'>Next question</a>
+        <button type=submit class='button is-primary'>done</button>
+      </div>
+    </form>
+  </div>
 </section>
 <%- include ('../partials/tail') %>

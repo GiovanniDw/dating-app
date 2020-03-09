@@ -92,20 +92,21 @@ profileController.profile = async (req, res, next) => {
 }
 profileController.editProfile = (req, res) => {
     res.render('pages/edit', {
-        user: req.user
+        user: req.user,
+        platforms: platformData,
+        genres: genreData
     });
 }
 
 profileController.doEditProfile = (req, res, next) => {
-    User.findOneAndUpdate({
+    db.User.findOneAndUpdate({
         _id: req.user._id
     }, {
         $set: {
-            // name: req.body.name,
-            username: req.body.username,
-            console: req.body.console,
-            gamemode: req.body.gamemode,
-            playstyle: req.body.playstyle,
+            name: req.body.name,
+            // username: req.body.username,
+            platforms: req.body.platforms,
+            genres: req.body.genres,
             picture: req.file ? req.file.filename : null,
             about: req.body.about
         }
