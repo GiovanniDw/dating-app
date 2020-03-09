@@ -1,5 +1,5 @@
 {
-  "name": "dating-app",
+  "name": "party-finder",
   "version": "1.0.0",
   "description": "Dating app Packages",
   "main": "server.js",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/GiovanniDw/dating-app.git"
+    "url": "git+https://github.com/GiovanniDw/party-finder.git"
   },
   "keywords": [
     "Dating"
@@ -21,9 +21,9 @@
   "author": "Giovanni Dwidjosewojo",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/GiovanniDw/dating-app/issues"
+    "url": "https://github.com/GiovanniDw/party-finder/issues"
   },
-  "homepage": "https://github.com/GiovanniDw/dating-app#readme",
+  "homepage": "https://github.com/GiovanniDw/party-finder#readme",
   "dependencies": {
     "apicalypse": "^0.1.6",
     "bcrypt": "^4.0.1",
@@ -47,5 +47,12 @@
     "ejs-lint": "^1.0.1",
     "node-sass": "^4.12.0",
     "nodemon": "^2.0.2"
+  },
+  "engines": {
+    "node": "12.15.0"
+  },
+  "nodemonConfig": {
+    "start": "npm run test",
+    "restart": "npm run test"
   }
 }
