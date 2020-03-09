@@ -23,12 +23,11 @@ module.exports = (app) => {
         name: 'sid', // don't use the default session cookie name
         // set your options for the session cookie
         cookie: {
-            secure: true,
-            // httpOnly: true,
+            httpOnly: true,
             // the duration in milliseconds that the cookie is valid
             maxAge: 20 * 60 * 1000, // 20 minutes
             // recommended you use this setting in production if you have a well-known domain you want to restrict the cookies to.
-            domain: 'party-finderr.herokuapp.com',
+            // domain: 'party-finderr.herokuapp.com',
             // recommended you use this setting in production if your site is published using HTTPS
             // secure: true,
         }

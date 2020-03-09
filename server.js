@@ -46,7 +46,7 @@ app.use((error, req, res, next) => {
 });
 
 // config mongoose
-require('./app/middleware/mongoose.js')()
+require('./app/middleware/mongoose')()
     .then(() => {
         app.listen(PORT, () => console.log(`Server up and running on ${PORT}.`));
     })

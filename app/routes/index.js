@@ -6,6 +6,6 @@ const router = express.Router();
 router.use('/games', require('./gamesRoutes'));
 router.use('/profile', require('./profileRoutes'));
 
-router.use('/', require('./homeRoutes'));
+router.use(require('./homeRoutes'));
 
 module.exports = router;
