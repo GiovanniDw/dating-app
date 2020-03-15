@@ -1,4 +1,4 @@
-module.exports = function () {
+module.exports = () => {
     return (req, res, next) => {
         // if the user is authenticated, we're all good here. let the next middleware handle it.
         if (req.isAuthenticated()) {

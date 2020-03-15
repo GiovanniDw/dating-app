@@ -11,7 +11,7 @@ const upload = multer({
     dest: './app/static/uploads/'
 })
 
-router.get('/', mustBeLoggedIn(), profile.profile);
+router.get('/', profile.profile);
 router.get('/edit', auth.isLoggedIn, profile.editProfile);
 router.post('/edit', upload.single('picture'), profile.doEditProfile);
 

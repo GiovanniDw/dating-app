@@ -19,7 +19,4 @@ matchController.show = async (req, res, next) => {
         next(err);
     }
 }
-
-
-
 module.exports = matchController;
