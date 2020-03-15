@@ -12,7 +12,6 @@ const requestOptions = {
 };
 const api = {};
 
-
 api.findPopular = async () => {
     try {
         const response = await request(requestOptions)
@@ -30,8 +29,6 @@ api.findPopular = async () => {
     }
 }
 
-
-
 api.searchGames = async (query) => {
     try {
         const response = await request(requestOptions)
@@ -46,8 +43,6 @@ api.searchGames = async (query) => {
         throw new Error('Nope...');
     }
 };
-
-
 
 api.findCover = async (id, size) => {
     try {
@@ -76,5 +71,4 @@ api.findGameId = async (id) => {
         throw new Error('Nope...');
     }
 };
-
 module.exports = api;

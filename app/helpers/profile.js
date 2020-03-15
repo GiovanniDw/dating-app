@@ -3,7 +3,6 @@ const db = require('../models');
 
 const profileHelper = {};
 
-
 profileHelper.saveInfo = (userID, userInfo) => {
     return new Promise(async (resolve, reject) => {
         let {
@@ -30,11 +29,8 @@ profileHelper.saveInfo = (userID, userInfo) => {
         };
     });
 };
-
 profileHelper.addGame = (userID, gameID) => {
     return new Promise(async (resolve, reject) => {
-
-
         try {
             const user = await db.User.findById(userID);
             const checkDup = user.games.includes(gameID);
@@ -49,8 +45,6 @@ profileHelper.addGame = (userID, gameID) => {
         }
     });
 };
-
-
 profileHelper.myGames = (userID) => {
     return new Promise(async (resolve, reject) => {
         try {
@@ -63,8 +57,4 @@ profileHelper.myGames = (userID) => {
         }
     })
 }
-
-
-
-
 module.exports = profileHelper;

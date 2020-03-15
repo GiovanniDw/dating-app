@@ -1,6 +1,5 @@
 const express = require('express');
 
-
 const auth = require("../controllers/HomeController.js");
 const match = require("../controllers/MatchController.js");
 const profile = require("../controllers/ProfileController.js");
@@ -19,15 +18,5 @@ router.get('/onboarding', profile.onboarding);
 router.post('/onboarding', profile.doOnboarding);
 
 router.get('/logout', auth.logout);
-
-
-
-
-
-
-
-
-
-
 
 module.exports = router;
