@@ -19,7 +19,8 @@ const UserSchema = new Schema({
     password: String,
     games: [{
         type: Schema.Types.Number,
-        ref: 'SingleGame'
+        ref: 'SingleGame',
+        autopopulate: true
     }],
     like: [{
         type: Schema.Types.ObjectId,
@@ -30,7 +31,7 @@ const UserSchema = new Schema({
         ref: 'User'
     }]
 });
-
+UserSchema.plugin(require('mongoose-autopopulate'));
 
 UserSchema.pre('save', function (next) {
     const user = this;
@@ -55,6 +56,8 @@ UserSchema.pre('save', function (next) {
         });
     });
 });
+
+
 
 // Here, we define a method that will be available on each instance of the User.
 // This method will validate a given password with the actual password, and resolve

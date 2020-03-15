@@ -19,9 +19,9 @@ profileHelper.saveInfo = (userID, userInfo) => {
                 platforms: platform,
                 genre: genre,
                 about: about,
-                picture: picture
+                picture: req.file ? req.file.filename : null
             });
-            user.username.addToSet(userInfo.username);
+            user.username.addToSet(userInfoo);
             await user.save();
             resolve(user);
         } catch (err) {
