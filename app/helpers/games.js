@@ -1,7 +1,7 @@
 const api = require('../helpers/api');
 const db = require('../models');
 
-const gamesHelper = {}
+const gamesHelper = {};
 
 gamesHelper.popular = async () => {
 	try {
@@ -17,7 +17,7 @@ gamesHelper.popular = async () => {
 					};
 					resolve(gameItem);
 				})
-			)
+			);
 
 		}
 		const gameItem = await Promise.all(results);
@@ -25,7 +25,7 @@ gamesHelper.popular = async () => {
 	} catch (err) {
 		throw new Error('No games today');
 	}
-}
+};
 gamesHelper.search = async (query) => {
 	try {
 		const results = [];
@@ -40,14 +40,14 @@ gamesHelper.search = async (query) => {
 					};
 					resolve(gameItem);
 				})
-			)
+			);
 		}
 		const gameItem = await Promise.all(results);
 		return gameItem;
 	} catch (err) {
 		throw new Error('No search today');
 	}
-}
+};
 gamesHelper.findOne = async (id) => {
 	try {
 		const result = await api.findGameId(id);
@@ -64,9 +64,9 @@ gamesHelper.findOne = async (id) => {
 			throw new Error;
 		}
 	} catch (err) {
-		throw new Error('Game by id not found')
+		throw new Error('Game by id not found');
 	}
-}
+};
 gamesHelper.findGameId = async (id) => {
 	try {
 		let game = await db.SingleGame.findById(id);

@@ -27,7 +27,7 @@ api.findPopular = async () => {
 	} catch (err) {
 		throw new Error('Nope...');
 	}
-}
+};
 
 api.searchGames = async (query) => {
 	try {

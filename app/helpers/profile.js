@@ -10,7 +10,7 @@ profileHelper.saveInfo = (userID, userInfo) => {
 			genre,
 			about,
 			picture
-		} = userInfo
+		} = userInfo;
 		try {
 			const user = await db.User.findById(userID);
 			let userInfoo = ({
@@ -25,7 +25,7 @@ profileHelper.saveInfo = (userID, userInfo) => {
 			resolve(user);
 		} catch (err) {
 			reject(err);
-		};
+		}
 	});
 };
 profileHelper.addGame = (userID, gameID) => {
@@ -52,8 +52,8 @@ profileHelper.myGames = (userID) => {
 		} catch (err) {
 			reject({
 				type: 'error'
-			})
+			});
 		}
-	})
-}
+	});
+};
 module.exports = profileHelper;

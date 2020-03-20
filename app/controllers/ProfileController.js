@@ -1,124 +1,122 @@
-const db = require("../models");
+const db = require('../models');
 const profileHelper = require('../helpers/profile');
 
 let profileController = {};
 
 let platformData = [{
-        name: 'Computer',
-        value: 'computer'
-    },
-    {
-        name: 'Mobile',
-        value: 'mobile'
-    }, {
-        name: 'Xbox',
-        value: 'xbox'
-    }, {
-        name: 'Playstation',
-        value: 'playstation'
-    }, {
-        name: 'Switch',
-        value: 'switch'
-    }, {
-        name: 'Wii',
-        value: 'wii'
-    }
-]
+	name: 'Computer',
+	value: 'computer'
+}, {
+	name: 'Mobile',
+	value: 'mobile'
+}, {
+	name: 'Xbox',
+	value: 'xbox'
+}, {
+	name: 'Playstation',
+	value: 'playstation'
+}, {
+	name: 'Switch',
+	value: 'switch'
+}, {
+	name: 'Wii',
+	value: 'wii'
+}];
 
 
 let genreData = [{
-    name: 'Action',
-    value: 'action'
+	name: 'Action',
+	value: 'action'
 }, {
-    name: 'Adventure',
-    value: 'adventure'
+	name: 'Adventure',
+	value: 'adventure'
 }, {
-    name: 'Casual',
-    value: 'casual'
+	name: 'Casual',
+	value: 'casual'
 }, {
-    name: 'Fighting',
-    value: 'fighting'
+	name: 'Fighting',
+	value: 'fighting'
 }, {
-    name: 'Party',
-    value: 'party'
+	name: 'Party',
+	value: 'party'
 }, {
-    name: 'RPG',
-    value: 'rpg'
+	name: 'RPG',
+	value: 'rpg'
 }, {
-    name: 'Sports',
-    value: 'sports'
+	name: 'Sports',
+	value: 'sports'
 }, {
-    name: 'Strategy',
-    value: 'strategy'
-}]
+	name: 'Strategy',
+	value: 'strategy'
+}];
 
 profileController.onboarding = (req, res) => {
-    res.render('pages/onboarding', {
-        user: req.user,
-        platforms: platformData,
-        genres: genreData
-    })
+	res.render('pages/onboarding', {
+		user: req.user,
+		platforms: platformData,
+		genres: genreData
+	});
 };
 
 
 profileController.doOnboarding = async (req, res, next) => {
-    const userInfo = req.body;
-    const userID = req.user.id;
-    try {
-        await profileHelper.saveInfo(userID, userInfo);
-        res.redirect('/profile');
-    } catch (err) {
-        next(err)
-    }
+	const userInfo = req.body;
+	const userID = req.user.id;
+	try {
+		await profileHelper.saveInfo(userID, userInfo);
+		res.redirect('/profile');
+	} catch (err) {
+		next(err);
+	}
 
-    res.redirect('/profile')
-}
+	res.redirect('/profile');
+};
 
 
 profileController.profile = async (req, res, next) => {
-    let myGames = [];
-    try {
-        const userID = req.user.id;
-        myGames = await profileHelper.myGames(userID); // populates usergames into myGames of logged in user
-        res.render('pages/profile', {
-            title: 'Profile',
-            user: req.user,
-            games: myGames
-        })
+	let myGames = [];
+	try {
+		const userID = req.user.id;
+		myGames = await profileHelper.myGames(userID); // populates usergames into myGames of logged in user
+		res.render('pages/profile', {
+			title: 'Profile',
+			user: req.user,
+			games: myGames
+		});
 
-    } catch (err) {
-        next(err);
-    }
-}
+	} catch (err) {
+		next(err);
+	}
+};
 profileController.editProfile = (req, res) => {
-    res.render('pages/edit', {
-        user: req.user,
-        platforms: platformData,
-        genres: genreData
-    });
-}
+	res.render('pages/edit', {
+		user: req.user,
+		platforms: platformData,
+		genres: genreData
+	});
+};
 
 profileController.doEditProfile = (req, res, next) => {
-    db.User.findOneAndUpdate({
-        _id: req.user._id
-    }, {
-        $set: {
-            name: req.body.name,
-            // username: req.body.username,
-            platforms: req.body.platforms,
-            genres: req.body.genres,
-            picture: req.file ? req.file.filename : null,
-            about: req.body.about
-        }
-    }, done);
+	db.User.findOneAndUpdate({
+		_id: req.user._id
+	}, {
+		$set: {
+			name: req.body.name,
+			// username: req.body.username,
+			platforms: req.body.platforms,
+			genres: req.body.genres,
+			picture: req.file ? req.file.filename : null,
+			about: req.body.about
+		}
+	}, done);
 
-    function done(err) {
-        if (err) {
-            next(err)
-        } else {
+	function done(err) {
+		if (err) {
+			next(err);
+		} else {
 
-            res.redirect('/profile')
-        }
-    }
-}
+			res.redirect('/profile');
+		}
+	}
+};
 module.exports = profileController;

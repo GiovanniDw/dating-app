@@ -32,7 +32,7 @@ function chat(req, res) {
 		title: 'Chats',
 		user: req.user
 	});
-};
+}
 
 app.use((error, req, res, next) => {
 	console.error(error);
@@ -51,6 +51,6 @@ require('./app/middleware/mongoose')()
 	.catch(err => {
 		// an error occurred connecting to mongo!
 		// log the error and exit
-		console.error('Unable to connect to mongo.')
+		console.error('Unable to connect to mongo.');
 		console.error(err);
 	});
