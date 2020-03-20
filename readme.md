@@ -22,9 +22,7 @@ This repo is a project based on the following course at HvA CMD
 
 ## Run locally
 
-Before you can run this project locally you need to have installed:
- - [nodejs](https://nodejs.org/en/)
- - [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+Before you can run this project locally [`nodejs`](https://nodejs.org/en/) & [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) must be installed
 
 - Clone this project
   ```
