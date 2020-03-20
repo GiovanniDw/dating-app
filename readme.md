@@ -20,6 +20,19 @@ This repo is a project based on the following course at HvA CMD
 
 ## Table of Contents
 
+- [🎧 Party Finder](#%f0%9f%8e%a7-party-finder)
+  - [Description](#description)
+    - [Features](#features)
+  - [Table of Contents](#table-of-contents)
+  - [Run locally](#run-locally)
+  - [Code Overview](#code-overview)
+    - [Dependencies](#dependencies)
+    - [devDependencies](#devdependencies)
+    - [Application Structure](#application-structure)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [Licence](#licence)
+
 ## Run locally
 
 Before you can run this project locally [`nodejs`](https://nodejs.org/en/) & [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) must be installed
@@ -42,9 +55,10 @@ Before the app can be started, we need to create a `.env` file in the root folde
 The `.env` file could look something like this: 
 
 ```
-PORT="XXXX"
-DB_NAME=< The name of your mongoDB >
 MONGO_DB=mongodb+srv://<username>:<password>@<context>-xxxxxx.mongodb.net/test
+DB_NAME=< The name of your mongoDB >
+PORT="XXXX"
+SESSION_SECRED='xxxxxxx'
 API_KEY='xxxxxxxxx'
 ```
 
