@@ -1,56 +1,40 @@
 <%- include ('../partials/head') %>
 <section class="section">
-  <div class="container">
-    <div class="box">
-
-      <header>
-
-
-        <div class="delete"></div>
-        <form class="searchbar" action="/games/search/query" method="get">
-          <div class="field">
-            <div class="control has-icons-left">
-              <input class="input" type="search" id="mySearch" name="q" placeholder="Search">
-              <span class="icon is-small is-left">
-                <ion-icon name="search-outline"></ion-icon>
-              </span>
-            </div>
-
-
-          </div>
-        </form>
-
-
-      </header>
-
-      <section class="section">
-
-        <div class="columns is-mobile is-multiline">
-          <% for (var i = 0; i < games.length; i++) { %>
-          <div class="column is-one-third">
-
-            <figure class="image">
-              <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
-              <h3 class="is-overlay "><%= games[i].title %></h3>
-              <form class="is-overlay" action="/games/add/<%= games[i].id %>" method="post">
-                <button data-id="<%= games[i].id %>" class="button is-rounded">
-                  <span class="icon">
-                    <ion-icon name="add"></ion-icon>
-                  </span>
-
-                </button>
-              </form>
-            </figure>
-
-          </div>
-          <% } %>
-        </div>
-
-      </section>
-    </div>
-
-  </div>
+	<div class="container">
+		<div class="box">
+			<header>
+				<div class="delete"></div>
+				<form class="searchbar" action="/games/search/query" method="get">
+					<div class="field">
+						<div class="control has-icons-left">
+							<input class="input" type="search" id="mySearch" name="q" placeholder="Search">
+							<span class="icon is-small is-left">
+								<ion-icon name="search-outline"></ion-icon>
+							</span>
+						</div>
+					</div>
+				</form>
+			</header>
+			<section class="section">
+				<div class="columns is-mobile is-multiline">
+					<% for (var i = 0; i < games.length; i++) { %>
+					<div class="column is-one-third">
+						<figure class="image">
+							<img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+							<h3 class="is-overlay "><%= games[i].title %></h3>
+							<form class="is-overlay" action="/games/add/<%= games[i].id %>" method="post">
+								<button data-id="<%= games[i].id %>" class="button is-rounded">
+									<span class="icon">
+										<ion-icon name="add"></ion-icon>
+									</span>
+								</button>
+							</form>
+						</figure>
+					</div>
+					<% } %>
+				</div>
+			</section>
+		</div>
+	</div>
 </section>
-
-
 <%- include ('../partials/tail') %>

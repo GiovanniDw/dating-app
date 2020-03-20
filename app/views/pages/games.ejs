@@ -1,82 +1,64 @@
 <%- include ('../partials/head') %>
-
-
-
 <header>
-  <nav class="navbar is-fixed-top">
-
-    <div class="navbar-menu is-flex is-shadowless">
-      <div class="navbar-start">
-        <div class="navbar-item">
-          <%_ if (title == 'Search') { %>
-          <a class="navbar-link is-arrowless">
-            Back
-          </a>
-          <% } else {} %>
-
-        </div>
-      </div>
-      <div class="navbar-center">
-        <div class="navbar-item">
-          Search
-        </div>
-      </div>
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <%_ if (title == 'Profile') { %>
-          <a class="navbar-link is-arrowless">
-            Edit
-          </a>
-          <% } else {} %>
-
-        </div>
-      </div>
-    </div>
-  </nav>
-  <section class="hero">
-    <div class="hero-body">
-      <form class="searchbar" action="/games/search/query" method="get">
-        <div class="field">
-          <div class="control has-icons-left">
-            <input class="input" type="search" id="mySearch" name="q" placeholder="Search">
-            <span class="icon is-small is-left">
-              <ion-icon name="search-outline"></ion-icon>
-            </span>
-          </div>
-
-
-        </div>
-      </form>
-
-    </div>
-  </section>
+	<nav class="navbar is-fixed-top">
+		<div class="navbar-menu is-flex is-shadowless">
+			<div class="navbar-start">
+				<div class="navbar-item">
+					<%_ if (title == 'Search') { %>
+					<a class="navbar-link is-arrowless">
+						Back
+					</a>
+					<% } else {} %>
+				</div>
+			</div>
+			<div class="navbar-center">
+				<div class="navbar-item">
+					Search
+				</div>
+			</div>
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<%_ if (title == 'Profile') { %>
+					<a class="navbar-link is-arrowless">
+						Edit
+					</a>
+					<% } else {} %>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<section class="hero">
+		<div class="hero-body">
+			<form class="searchbar" action="/games/search/query" method="get">
+				<div class="field">
+					<div class="control has-icons-left">
+						<input class="input" type="search" id="mySearch" name="q" placeholder="Search">
+						<span class="icon is-small is-left">
+							<ion-icon name="search-outline"></ion-icon>
+						</span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
 </header>
-
 <section class="section">
-  <div class="columns is-mobile is-multiline">
-    <% for (var i = 0; i < games.length; i++) { %>
-    <div class="column is-one-third">
-
-      <figure class="image">
-        <h3><%= games[i].title %></h3>
-        <img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
-        <form class="is-overlay" action="/games/add/<%= games[i].id %>" method="post">
-          <button data-id="<%= games[i].id %>" class="button is-rounded">
-            <span class="icon">
-              <ion-icon name="add"></ion-icon>
-            </span>
-
-          </button>
-        </form>
-      </figure>
-    </div>
-    <% } %>
-  </div>
+	<div class="columns is-mobile is-multiline">
+		<% for (var i = 0; i < games.length; i++) { %>
+		<div class="column is-one-third">
+			<figure class="image">
+				<h3><%= games[i].title %></h3>
+				<img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
+				<form class="is-overlay" action="/games/add/<%= games[i].id %>" method="post">
+					<button data-id="<%= games[i].id %>" class="button is-rounded">
+						<span class="icon">
+							<ion-icon name="add"></ion-icon>
+						</span>
+					</button>
+				</form>
+			</figure>
+		</div>
+		<% } %>
+	</div>
 </section>
-
-
-
-
-
-
 <%- include ('../partials/tail') %>

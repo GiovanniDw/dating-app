@@ -1,49 +1,40 @@
 <footer>
-    <% if (typeof user == 'object' && user) { %>
-    <nav class="navbar is-fixed-bottom is-link" role="navigation">
-        <div class="navbar-brand">
-            <% if (typeof title != "undefined") { %>
-
-            <a class="navbar-item is-expanded is-block has-text-centered" href="/profile">
-                <ion-icon name="person-circle<%_ if (title !== 'Profile') { %>-outline<% } else {} %>">
-                </ion-icon>
-                <p class="is-size-7">Profile</p>
-            </a>
-            <a class="navbar-item is-expanded is-block has-text-centered" href="/">
-                <ion-icon name="compass<%_ if (title !== 'Discover') { %>-outline<% } %>"></ion-icon>
-                <p class="is-size-7">Discover</p>
-            </a>
-            <a class="navbar-item is-expanded is-block has-text-centered" href="/chat">
-                <ion-icon name="chatbubbles<%_ if (title !== 'Chats') { %>-outline<% } else {} %>">
-                </ion-icon>
-                <p class="is-size-7">Chats</p>
-
-            </a>
-
-
-            <% } else { %>
-
-            <a class="navbar-item is-expanded is-block has-text-centered" href="/profile">
-                <ion-icon name="person-circle-outline"></ion-icon>
-                <p class="is-size-7">Profile</p>
-            </a>
-            <a class="navbar-item is-expanded is-block has-text-centered" href="/">
-                <ion-icon name="compass-outline"></ion-icon>
-                <p class="is-size-7">Discover</p>
-            </a>
-            <a class="navbar-item is-expanded is-block has-text-centered" href="/chat">
-                <ion-icon name="chatbubbles-outline"></ion-icon>
-                <p class="is-size-7">Chats</p>
-            </a>
-
-
-            <% } %>
-
-        </div>
-    </nav>
-    <% } %>
+	<% if (typeof user == 'object' && user) { %>
+	<nav class="navbar is-fixed-bottom is-link" role="navigation">
+		<div class="navbar-brand">
+			<% if (typeof title != "undefined") { %>
+			<a class="navbar-item is-expanded is-block has-text-centered" href="/profile">
+				<ion-icon name="person-circle<%_ if (title !== 'Profile') { %>-outline<% } else {} %>">
+				</ion-icon>
+				<p class="is-size-7">Profile</p>
+			</a>
+			<a class="navbar-item is-expanded is-block has-text-centered" href="/">
+				<ion-icon name="compass<%_ if (title !== 'Discover') { %>-outline<% } %>"></ion-icon>
+				<p class="is-size-7">Discover</p>
+			</a>
+			<a class="navbar-item is-expanded is-block has-text-centered" href="/chat">
+				<ion-icon name="chatbubbles<%_ if (title !== 'Chats') { %>-outline<% } else {} %>">
+				</ion-icon>
+				<p class="is-size-7">Chats</p>
+			</a>
+			<% } else { %>
+			<a class="navbar-item is-expanded is-block has-text-centered" href="/profile">
+				<ion-icon name="person-circle-outline"></ion-icon>
+				<p class="is-size-7">Profile</p>
+			</a>
+			<a class="navbar-item is-expanded is-block has-text-centered" href="/">
+				<ion-icon name="compass-outline"></ion-icon>
+				<p class="is-size-7">Discover</p>
+			</a>
+			<a class="navbar-item is-expanded is-block has-text-centered" href="/chat">
+				<ion-icon name="chatbubbles-outline"></ion-icon>
+				<p class="is-size-7">Chats</p>
+			</a>
+			<% } %>
+		</div>
+	</nav>
+	<% } %>
 </footer>
-
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 </body>
 

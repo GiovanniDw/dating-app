@@ -1,51 +1,46 @@
 <%- include ('../partials/head') %>
-
-
 <header>
-    <nav class="navbar is-fixed-top">
+	<nav class="navbar is-fixed-top">
 
-        <div class="navbar-menu is-flex is-shadowless">
-            <div class="navbar-start">
-                <div class="navbar-item">
-                    <%_ if (title == 'Profile') { %>
-                    <a class="navbar-link is-arrowless">
-                        Back
-                    </a>
-                    <% } else {} %>
-
-                </div>
-            </div>
-            <div class="navbar-center">
-                <div class="navbar-item">
-                    <!-- <h1 class="title">
+		<div class="navbar-menu is-flex is-shadowless">
+			<div class="navbar-start">
+				<div class="navbar-item">
+					<%_ if (title == 'Profile') { %>
+					<a class="navbar-link is-arrowless">
+						Back
+					</a>
+					<% } else {} %>
+				</div>
+			</div>
+			<div class="navbar-center">
+				<div class="navbar-item">
+					<!-- <h1 class="title">
             Title
           </h1> -->
-                </div>
-            </div>
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <%_ if (title == 'Profile') { %>
-                    <a class="navbar-link is-arrowless">
-                        Edit
-                    </a>
-                    <% } else {} %>
-
-                </div>
-            </div>
-        </div>
-    </nav>
-    <section class="hero">
-        <div class="hero-body">
-            <h1 class="title">
-                Chats
-            </h1>
-
-        </div>
-    </section>
+				</div>
+			</div>
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<%_ if (title == 'Profile') { %>
+					<a class="navbar-link is-arrowless">
+						Edit
+					</a>
+					<% } else {} %>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<section class="hero">
+		<div class="hero-body">
+			<h1 class="title">
+				Chats
+			</h1>
+		</div>
+	</section>
 </header>
 <section class="section">
-    <div class="container">
-        <h2>If you get some matches they will appear here !</h2>
-    </div>
+	<div class="container">
+		<h2>If you get some matches they will appear here !</h2>
+	</div>
 </section>
 <%- include ('../partials/tail') %>

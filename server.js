@@ -9,7 +9,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
-    extended: true
+	extended: true
 }));
 app.use('/', express.static('app/static/'));
 
@@ -28,29 +28,29 @@ app.get('/chat', chat);
 
 
 function chat(req, res) {
-    res.render('pages/chat', {
-        title: 'Chats',
-        user: req.user
-    });
+	res.render('pages/chat', {
+		title: 'Chats',
+		user: req.user
+	});
 };
 
 app.use((error, req, res, next) => {
-    console.error(error);
-    res.render('pages/error', {
-        user: req.user,
-        error
-    });
+	console.error(error);
+	res.render('pages/error', {
+		user: req.user,
+		error
+	});
 });
 
 // config mongoose
 require('./app/middleware/mongoose')()
-    .then(() => {
-        app.listen(PORT, () => console.log(`Server up and running on ${PORT}.`));
-    })
+	.then(() => {
+		app.listen(PORT, () => console.log(`Server up and running on ${PORT}.`));
+	})
 
-    .catch(err => {
-        // an error occurred connecting to mongo!
-        // log the error and exit
-        console.error('Unable to connect to mongo.')
-        console.error(err);
-    });
+	.catch(err => {
+		// an error occurred connecting to mongo!
+		// log the error and exit
+		console.error('Unable to connect to mongo.')
+		console.error(err);
+	});
