@@ -1,4 +1,4 @@
-# 🎧 Party Finder  
+# Party Finder
 With Party Finder you can find gamers with the same intrests as you!
 
 This repo is a project based on the following course at HvA CMD
@@ -18,9 +18,6 @@ The research of this project will be documented in the [Wiki](https://github.com
 
 ## Contents
 
-- [🎧 Party Finder](#%f0%9f%8e%a7-party-finder)
-  - [Features](#features)
-  - [Contents](#contents)
   - [Run locally](#run-locally)
   - [Code Overview](#code-overview)
     - [Dependencies](#dependencies)
@@ -102,7 +99,7 @@ $ npm run nmStart
 
 
 ## Resources
-- [https://api-docs.igdb.com/#about](https://api-docs.igdb.com/)
+- [https://api-docs.igdb.com/](https://api-docs.igdb.com/)
 
 ## Licence 
 All code in this repository is provided under the [MIT License](LICENCE)
