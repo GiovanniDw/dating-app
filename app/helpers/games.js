@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 
 const db = require('../models');
 
-
 const gamesHelper = {}
 
 gamesHelper.popular = async () => {
