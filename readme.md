@@ -103,5 +103,7 @@ $ npm run nmStart
 ## Credits
 
 ## Licence 
+[MIT](LICENCE)
+
 
 
