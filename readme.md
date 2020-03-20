@@ -24,13 +24,29 @@ This repo is a project based on the following course at HvA CMD
 
 Before you can run this project locally [`nodejs`](https://nodejs.org/en/) & [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) must be installed
 
-Clone this project & Install dependencies
-```
+Clone this project & Install the dependencies:
+```zsh
   $ git clone https://github.com/GiovanniDw/party-finder.git  
   $ cd party-finder
   $ npm install
 ```
 
+Before the app can be started, we need to create a `.env` file in the root folder of the app. This file must have some env variables specified below.
+   - `MONGO_DB` - Must be a connection string of mongoDB. I recommend a free MongoDB at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas).
+   - `DB_NAME` - Must be the name of your mongoDB.
+   - `PORT` - The port the server wil run at localhost.
+   - `SESSION_SECRED` - For more info check[https://github.com/expressjs/session#secret](https://github.com/expressjs/session#secret)
+   - `API_KEY` - To use the search for games function you can get a free API key at [https://api.igdb.com](https://api.igdb.com) 
+
+
+The `.env` file wil look something like this: 
+
+```
+PORT="XXXX"
+DB_NAME=< The name of your mongoDB >
+MONGO_DB=mongodb+srv://<username>:<password>@<context>-xxxxxx.mongodb.net/test
+API_KEY='xxxxxxxxx'
+```
 
 
 ## Code Overview

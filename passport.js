@@ -12,7 +12,7 @@ module.exports = (app) => {
     app.use(cookieparser());
     app.use(session({
         // this should be changed to something cryptographically secure for production
-        secret: 'BSijaknc',
+        secret: process.env.SESSION_SECRET,
         resave: false,
         saveUninitialized: false,
         // automatically extends the session age on each request. useful if you want
