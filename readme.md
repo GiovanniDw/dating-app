@@ -39,7 +39,7 @@ Before the app can be started, we need to create a `.env` file in the root folde
    - `API_KEY` - To use the search for games function you can get a free API key at [https://api.igdb.com](https://api.igdb.com) 
 
 
-The `.env` file wil look something like this: 
+The `.env` file could look something like this: 
 
 ```
 PORT="XXXX"
@@ -48,6 +48,14 @@ MONGO_DB=mongodb+srv://<username>:<password>@<context>-xxxxxx.mongodb.net/test
 API_KEY='xxxxxxxxx'
 ```
 
+Start the app:
+```zsh
+$ npm run start
+```
+Start the app with nodemon:
+```zsh
+$ npm run nmStart
+```
 
 ## Code Overview
 ### Dependencies
@@ -65,7 +73,16 @@ API_KEY='xxxxxxxxx'
 - [node-sass]
 
 ### Application Structure
-- `server.js`
+- `server.js` - The entry point to the application.
+- `passport.js` - Contains configuration for passport.
+- `app/routes` - This folder contains the app's routes.
+- `app/controllers` - Contains the controllers for the routes.
+- `app/models` - Contains the Schema defenitions for Mongoose models
+- `app/helpers` - Contains helper functions for the controllers.
+- `app/middleware` - Contains middleware functions.
+- `app/static` - Contains static files like images & css.
+- `app/views` - Contains ejs files that will be compiled by expressjs
+
 
 ## Usage 
 
