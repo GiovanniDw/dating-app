@@ -24,11 +24,14 @@ This repo is a project based on the following course at HvA CMD
 
 Before you can run this project locally [`nodejs`](https://nodejs.org/en/) & [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) must be installed
 
-- Clone this project
-  ```
-  $ git clone https://github.com/GiovanniDw/party-finder.git
+Clone this project & Install dependencies
+```
+  $ git clone https://github.com/GiovanniDw/party-finder.git  
+  $ cd party-finder
+  $ npm install
+```
 
-    ```
+
 
 ## Code Overview
 ### Dependencies
