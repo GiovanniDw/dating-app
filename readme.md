@@ -1,5 +1,6 @@
-# Party Finder ![logo](app/static/images/logo.png)  
-With Party Finder you can find gamers with the same intrests as you!
+# Party Finder <img src="app/static/images/logo.png" width="110" align="left" /> 
+With Party Finder you can find gamers with the same intrests as you! 
+
 
 This repo is a project based on the following course at HvA CMD
 - [Block Tech](https://github.com/cmda-bt)
