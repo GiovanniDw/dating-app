@@ -44,8 +44,10 @@
   "devDependencies": {
     "bulma": "^0.8.0",
     "ejs-lint": "^1.0.1",
+    "eslint": "^6.8.0",
     "node-sass": "^4.12.0",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "stylelint": "^13.2.1"
   },
   "engines": {
     "node": "12.15.0"
@@ -53,5 +55,52 @@
   "nodemonConfig": {
     "start": "npm run test",
     "restart": "npm run test"
+  },
+  "eslintIgnore": [
+    "*.ejs",
+    "node_modules/"
+  ],
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": "eslint:recommended",
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 2018
+    },
+    "rules": {
+      "indent": [
+        "error",
+        "tab"
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-var": "error"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard",
+    "rules": {
+      "indentation": "tab",
+      "number-leading-zero": "never",
+      "no-descending-specificity": null
+    }
   }
 }
