@@ -74,6 +74,8 @@ $ npm run nmStart
   - [multer](https://github.com/expressjs/multer) - Multer is a node.js middleware for handling `multipart/form-data`, which is primarily used for uploading files.
   - [body-parser](https://github.com/expressjs/body-parser) - Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
   - [cookie-parser](https://github.com/expressjs/cookie-parser) - Parse Cookie header and populate req.cookies with an object keyed by the cookie names.
+- [ejs](https://github.com/mde/ejs) - Embedded JavaScript templates.
+- [dotenv](https://github.com/motdotla/dotenv#readme) - Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env.  
 - [mongoose](https://github.com/Automattic/mongoose) - Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports both promises and callbacks.
   - [mongoose-autopopulate](https://github.com/mongodb-js/mongoose-autopopulate) - Always populate() certain fields in your mongoose schemas
 - [passport](https://github.com/jaredhanson/passport) - Passport is Express-compatible authentication middleware for Node.js.
