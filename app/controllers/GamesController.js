@@ -1,11 +1,11 @@
 const gamesHelper = require('../helpers/games');
 const profileHelper = require('../helpers/profile');
 
-const gamesController = {};
+
 
 const games = [];
 
-gamesController.list = async (req, res, next) => {
+exports.list = async (req, res, next) => {
 	try {
 		// query is the input to search of the user
 		const response = await gamesHelper.popular();
@@ -18,12 +18,12 @@ gamesController.list = async (req, res, next) => {
 		next(err);
 	}
 };
-gamesController.search = (req, res) => {
+exports.search = (req, res) => {
 	res.render('pages/games', {
 		games: games
 	});
 };
-gamesController.doSearch = async (req, res, next) => {
+exports.doSearch = async (req, res, next) => {
 	try {
 		const query = req.query.q; // query is the input to search of the user
 		const response = await gamesHelper.search(query); // goes to gamesHelper search with the search querry. and saves results to response
@@ -36,7 +36,7 @@ gamesController.doSearch = async (req, res, next) => {
 		next(err);
 	}
 };
-gamesController.addGame = async (req, res, next) => {
+exports.addGame = async (req, res, next) => {
 	const id = req.params.id;
 	const user = req.user.id;
 	try {
@@ -57,4 +57,3 @@ gamesController.addGame = async (req, res, next) => {
 		next(err);
 	}
 };
-module.exports = gamesController;

@@ -1,8 +1,8 @@
 const matchHelper = require('../helpers/match');
 
-let matchController = {};
 
-matchController.show = async (req, res, next) => {
+
+exports.show = async (req, res, next) => {
 	let users = [];
 	try {
 		users = await matchHelper.userInfo();
@@ -19,4 +19,3 @@ matchController.show = async (req, res, next) => {
 		next(err);
 	}
 };
-module.exports = matchController;

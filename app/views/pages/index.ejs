@@ -38,67 +38,70 @@
 	</section>
 </header>
 <% if (typeof user == 'object' && user) { %>
-<% for (var i = 0; i < users.length; i++) { %>
 <section class="section">
 	<div class="container">
-		<div class="card">
-			<div class="card-content">
-				<div class="media">
-					<div class="media-left">
-						<figure class="image is-128x128">
-							<img src="/uploads/<%= users[i].picture %> " alt="Placeholder image">
-						</figure>
-					</div>
-					<div class="media-content">
-						<p class="title is-4"> <%= users[i].name %> </p>
-					</div>
+		<% for (var i = 0; i < users.length; i++) { %>
+
+		<div class="box">
+
+			<div class="media">
+				<div class="media-left">
+					<figure class="image is-128x128 is-clipped">
+						<img class="avatar" src="/uploads/<%= users[i].picture %> " alt="Placeholder image">
+					</figure>
 				</div>
-				<div class="content">
-					<h3 class="title is-4">Games</h3>
-					<div class="columns is-mobile is-multiline">
-						<% for (var j = 0; j < users[i].games.length; j++) { %>
-						<div class="column is-one-third">
-							<figure class="image is-marginless">
-								<img src="<%= users[i].games[j].cover %>" alt="<%= users[i].games[j].title %>">
-							</figure>
-						</div>
-						<% } %>
-					</div>
-					<h3 class="title is-4">Platforms</h3>
-					<div class="tags are-medium">
-						<% for (var j = 0; j < users[i].platforms.length; j++) { %>
-						<span class="tag is-rounded is-primary is-light"><%= users[i].platforms[j] %></span>
-						<% } %>
-					</div>
-					<h3 class="title is-4">Genres</h3>
-					<div class="tags are-medium">
-						<% for (var j = 0; j < users[i].genres.length; j++) { %>
-						<span class="tag is-rounded is-primary is-light"><%= users[i].genres[j] %></span>
-						<% } %>
-					</div>
-					<h3 class="title is-4">About</h3>
-					<p class=""> <%= users[i].about %> </p>
-					<div class="is-divider"></div>
-					<form action="/like">
-						<div class="buttons is-centered">
-							<button class="button is-large is-rounded is-danger">
-								<span class="icon is-large">
-									<ion-icon name="thumbs-down"></ion-icon>
-								</span>
-							</button>
-							<button class="button is-large is-rounded is-success">
-								<span class="icon is-large">
-									<ion-icon name="thumbs-up"></ion-icon>
-								</span>
-							</button>
-						</div>
-					</form>
+				<div class="media-content">
+					<p class="title is-4"> <%= users[i].name %> </p>
 				</div>
 			</div>
+			<div class="content">
+				<h3 class="title is-4">Games</h3>
+				<div class="columns is-mobile is-multiline">
+					<% for (var j = 0; j < users[i].games.length; j++) { %>
+					<div class="column is-one-third">
+						<figure class="image is-marginless">
+							<img src="<%= users[i].games[j].cover %>" alt="<%= users[i].games[j].title %>">
+						</figure>
+					</div>
+					<% } %>
+				</div>
+				<h3 class="title is-4">Platforms</h3>
+				<div class="tags are-medium">
+					<% for (var j = 0; j < users[i].platforms.length; j++) { %>
+					<span class="tag is-rounded is-primary is-light"><%= users[i].platforms[j] %></span>
+					<% } %>
+				</div>
+				<h3 class="title is-4">Genres</h3>
+				<div class="tags are-medium">
+					<% for (var j = 0; j < users[i].genres.length; j++) { %>
+					<span class="tag is-rounded is-primary is-light"><%= users[i].genres[j] %></span>
+					<% } %>
+				</div>
+				<h3 class="title is-4">About</h3>
+				<p class=""> <%= users[i].about %> </p>
+				<div class="is-divider"></div>
+				<form action="/like">
+					<div class="buttons is-centered">
+						<button class="button is-large is-rounded is-danger">
+							<span class="icon is-large">
+								<ion-icon name="trash-outline"></ion-icon>
+							</span>
+						</button>
+						<button class="button is-large is-rounded is-success">
+							<span class="icon is-large">
+							<ion-icon name="game-controller-outline"></ion-icon>
+							</span>
+						</button>
+					</div>
+				</form>
+			</div>
+
 		</div>
+
+		<% } %>
 	</div>
 </section>
-<% } %>
+
 <% } else { %>
 <h2>Welcome!</h2>
 <% } %>

@@ -1,8 +1,8 @@
 const db = require('../models');
 
-const matchHelper = {};
 
-matchHelper.userInfo = async () => {
+
+exports.userInfo = async () => {
 	try {
 		const users = await db.User.find();
 		return users;
@@ -10,5 +10,3 @@ matchHelper.userInfo = async () => {
 		reject(err);
 	}
 };
-
-module.exports = matchHelper;

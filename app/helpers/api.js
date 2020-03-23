@@ -10,9 +10,7 @@ const requestOptions = {
 	},
 	responseType: 'json'
 };
-const api = {};
-
-api.findPopular = async () => {
+exports.findPopular = async () => {
 	try {
 		const response = await request(requestOptions)
 			.fields('name,cover,rating,release_dates,platforms,popularity')
@@ -29,7 +27,7 @@ api.findPopular = async () => {
 	}
 };
 
-api.searchGames = async (query) => {
+exports.searchGames = async (query) => {
 	try {
 		const response = await request(requestOptions)
 			.fields('name,cover,platforms')
@@ -44,7 +42,7 @@ api.searchGames = async (query) => {
 	}
 };
 
-api.findCover = async (id, size) => {
+exports.findCover = async (id, size) => {
 	try {
 		const response = await request(requestOptions)
 			.fields('image_id')
@@ -59,7 +57,7 @@ api.findCover = async (id, size) => {
 		return findCover;
 	}
 };
-api.findGameId = async (id) => {
+exports.findGameId = async (id) => {
 	try {
 		const response = await request(requestOptions)
 			.fields('name, cover')
@@ -71,4 +69,3 @@ api.findGameId = async (id) => {
 		throw new Error('Nope...');
 	}
 };
-module.exports = api;

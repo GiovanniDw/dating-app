@@ -1,8 +1,7 @@
 const db = require("../models");
 const passport = require("passport");
-let authController = {};
 
-authController.isLoggedIn = async (req, res, next) => {
+exports.isLoggedIn = async (req, res, next) => {
 	if (req.isAuthenticated()) {
 		next();
 	} else {
@@ -10,7 +9,7 @@ authController.isLoggedIn = async (req, res, next) => {
 	}
 };
 // Restrict access to root page
-authController.home = (req, res) => {
+exports.home = (req, res) => {
 	if (req.user) {
 		res.render('pages/index', {
 			user: req.user,
@@ -23,7 +22,7 @@ authController.home = (req, res) => {
 };
 
 // Go to registration page
-authController.register = (req, res) => {
+exports.register = (req, res) => {
 	if (req.user) {
 		res.redirect('/');
 	} else {
@@ -34,7 +33,7 @@ authController.register = (req, res) => {
 };
 
 // Post registration
-authController.doRegister = (req, res, next) => {
+exports.doRegister = (req, res, next) => {
 	const user = new db.User(req.body);
 	user.save(req.body)
 		.then(req => {
@@ -59,22 +58,20 @@ authController.doRegister = (req, res, next) => {
 
 
 // Go to login page
-authController.login = (req, res) => {
+exports.login = (req, res) => {
 	res.render('pages/login', {
 		flash: req.flash('error')
 	});
 };
 // Post login
-authController.doLogin = passport.authenticate('local', {
+exports.doLogin = passport.authenticate('local', {
 	successRedirect: '/',
 	failureRedirect: '/login'
 });
 
 // logout
-authController.logout = (req, res) => {
+exports.logout = (req, res) => {
 	req.logout();
 	req.session.destroy();
 	res.redirect('/login');
 };
-
-module.exports = authController;

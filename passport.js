@@ -47,8 +47,8 @@ module.exports = (app) => {
 	passport.use(new LocalStrategy((username, password, done) => {
 		const errorMsg = 'Invalid username or password';
 		db.User.findOne({
-				username
-			})
+			username: username
+		})
 			.then(user => {
 				// if no matching user was found...
 				if (!user) {

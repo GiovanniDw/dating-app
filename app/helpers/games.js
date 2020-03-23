@@ -1,9 +1,9 @@
 const api = require('../helpers/api');
 const db = require('../models');
 
-const gamesHelper = {};
 
-gamesHelper.popular = async () => {
+
+exports.popular = async () => {
 	try {
 		const results = [];
 		const games = await api.findPopular();
@@ -26,7 +26,7 @@ gamesHelper.popular = async () => {
 		throw new Error('No games today');
 	}
 };
-gamesHelper.search = async (query) => {
+exports.search = async (query) => {
 	try {
 		const results = [];
 		const games = await api.searchGames(query);
@@ -48,7 +48,7 @@ gamesHelper.search = async (query) => {
 		throw new Error('No search today');
 	}
 };
-gamesHelper.findOne = async (id) => {
+exports.findOne = async (id) => {
 	try {
 		const result = await api.findGameId(id);
 		const game = result && result[0];
@@ -67,7 +67,7 @@ gamesHelper.findOne = async (id) => {
 		throw new Error('Game by id not found');
 	}
 };
-gamesHelper.findGameId = async (id) => {
+exports.findGameId = async (id) => {
 	try {
 		let game = await db.SingleGame.findById(id);
 		return (game);
@@ -75,7 +75,7 @@ gamesHelper.findGameId = async (id) => {
 		next(err);
 	}
 };
-gamesHelper.save = (game) => {
+exports.save = (game) => {
 	const {
 		id,
 		title,
@@ -95,4 +95,3 @@ gamesHelper.save = (game) => {
 	}
 
 };
-module.exports = gamesHelper;

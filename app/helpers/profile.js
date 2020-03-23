@@ -1,8 +1,6 @@
 const db = require('../models');
 
-const profileHelper = {};
-
-profileHelper.saveInfo = (userID, userInfo) => {
+exports.saveInfo = (userID, userInfo) => {
 	return new Promise(async (resolve, reject) => {
 		let {
 			username,
@@ -28,7 +26,7 @@ profileHelper.saveInfo = (userID, userInfo) => {
 		}
 	});
 };
-profileHelper.addGame = (userID, gameID) => {
+exports.addGame = (userID, gameID) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const user = await db.User.findById(userID);
@@ -44,7 +42,7 @@ profileHelper.addGame = (userID, gameID) => {
 		}
 	});
 };
-profileHelper.myGames = (userID) => {
+exports.myGames = (userID) => {
 	return new Promise(async (resolve, reject) => {
 		try {
 			const user = await db.User.findById(userID).select('games').populate('games');
@@ -56,4 +54,3 @@ profileHelper.myGames = (userID) => {
 		}
 	});
 };
-module.exports = profileHelper;

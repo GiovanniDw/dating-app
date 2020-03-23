@@ -290,7 +290,7 @@ button,
 input,
 select,
 textarea {
-  font-family: "Roboto", sans-serif; }
+  font-family: "Roboto", "sans-serif"; }
 
 code,
 pre {
@@ -737,13 +737,13 @@ a.has-text-danger:hover, a.has-text-danger:focus {
   font-weight: 700 !important; }
 
 .is-family-primary {
-  font-family: "Roboto", sans-serif !important; }
+  font-family: "Roboto", "sans-serif" !important; }
 
 .is-family-secondary {
-  font-family: "Roboto", sans-serif !important; }
+  font-family: "Roboto", "sans-serif" !important; }
 
 .is-family-sans-serif {
-  font-family: "Roboto", sans-serif !important; }
+  font-family: "Roboto", "sans-serif" !important; }
 
 .is-family-monospace {
   font-family: monospace !important; }
@@ -13238,3 +13238,9 @@ input[type=range].slider {
 .navbar-end {
   justify-content: flex-end;
   margin-left: auto; }
+
+.avatar {
+  border-radius: 2914789284210px !important;
+  overflow: hidden !important;
+  width: 128px !important;
+  height: 128px; }
