@@ -16,16 +16,11 @@ app.use('/', express.static('app/static/'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'app/views'));
 
-
 require('./passport')(app);
 
 app.use(require('./app/routes'));
 
-
 app.get('/chat', chat);
-
-// app.get('*', error)
-
 
 function chat(req, res) {
 	res.render('pages/chat', {
@@ -38,6 +33,7 @@ app.use((error, req, res, next) => {
 	console.error(error);
 	res.render('pages/error', {
 		user: req.user,
+		title: error,
 		error
 	});
 });

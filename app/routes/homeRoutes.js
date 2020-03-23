@@ -1,8 +1,8 @@
 const express = require('express');
 
-const auth = require("../controllers/HomeController.js");
-const match = require("../controllers/MatchController.js");
-const profile = require("../controllers/ProfileController.js");
+const auth = require('../controllers/HomeController.js');
+const match = require('../controllers/MatchController.js');
+const profile = require('../controllers/ProfileController.js');
 
 const router = express.Router();
 

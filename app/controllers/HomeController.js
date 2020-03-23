@@ -1,5 +1,5 @@
-const db = require('../models');
-const passport = require('passport');
+const db = require("../models");
+const passport = require("passport");
 let authController = {};
 
 authController.isLoggedIn = async (req, res, next) => {
@@ -45,7 +45,7 @@ authController.doRegister = (req, res, next) => {
 			// let's handle that nicely by redirecting them back to the create screen
 			// with that flash message
 			if (err.code === 11000) {
-				req.flash('error', 'That username is already in use.');
+				req.flash("error", "That username is already in use.");
 				return res.redirect('/register');
 			}
 

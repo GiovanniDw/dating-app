@@ -14,10 +14,7 @@ $link-invert:#fff;
 $link-invert-hover:hsl(0, 0%, 96%);
 // Update Bulma's global variables
 $family-sans-serif: "Roboto",
-sans-serif;
-
-
-
+'sans-serif';
 
 $primary: $blue;
 
@@ -34,7 +31,6 @@ $control-border-width: 1px;
 
 $input-shadow: none;
 
-
 // nav tab bar
 
 // $tabs-link-hover-border-bottom-color: none;
@@ -42,64 +38,59 @@ $input-shadow: none;
 // $tabs-link-hover-color:$link-invert-hover;
 
 ion-icon {
-    font-size: 1.5rem;
+	font-size: 1.5rem;
 }
 
 @import "../../../node_modules/bulma/bulma.sass";
 @import "../../../node_modules/bulma-extensions/src/sass/index.sass";
-
 
 // .button-back {
 //     padding-left: 0em;
 // }
 
 .button.is-rounded {
-    padding-left: 1em;
-    padding-right: 1em;
+	padding-left: 1em;
+	padding-right: 1em;
 }
 
 .is-fixed-bottom .navbar-brand {
-    padding-left: m#{a}x(8px, env(safe-area-inset-left));
-    padding-right: m#{a}x(8px, env(safe-area-inset-right));
-    padding-bottom: m#{a}x(8px, env(safe-area-inset-bottom));
+	padding-left: m#{a}x(8px, env(safe-area-inset-left));
+	padding-right: m#{a}x(8px, env(safe-area-inset-right));
+	padding-bottom: m#{a}x(8px, env(safe-area-inset-bottom));
 }
 
 .navbar.is-fixed-bottom {
-    display: inline-block;
+	display: inline-block;
 }
 
 .navbar.is-fixed-top {
-    align-items: stretch;
-    display: flex;
-    justify-content: space-between;
+	align-items: stretch;
+	display: flex;
+	justify-content: space-between;
 }
 
 .is-fixed-top .navbar-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .navbar-menu {
-    flex-grow: 1;
+	flex-grow: 1;
 }
 
 .navbar-start {
-    justify-content: flex-start;
-    margin-right: auto;
-
+	justify-content: flex-start;
+	margin-right: auto;
 }
 
 .navbar-center {
-    justify-content: center;
-    // margin: 0 auto;
-    align-self: center;
-
-
+	justify-content: center;
+	// margin: 0 auto;
+	align-self: center;
 }
 
 .navbar-end {
-    justify-content: flex-end;
-    margin-left: auto;
-
+	justify-content: flex-end;
+	margin-left: auto;
 }

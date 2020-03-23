@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const games = require("../controllers/GamesController");
-const auth = require("../controllers/HomeController");
+const games = require('../controllers/GamesController');
+const auth = require('../controllers/HomeController');
 
 router.get('/', auth.isLoggedIn, games.list);
 router.get('/search', auth.isLoggedIn, games.search);
