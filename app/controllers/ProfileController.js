@@ -62,15 +62,13 @@ exports.doOnboarding = async (req, res, next) => {
 	const userID = req.user.id;
 	try {
 		await profileHelper.saveInfo(userID, userInfo);
+console.log(userID);
+
 		res.redirect('/profile');
 	} catch (err) {
 		next(err);
 	}
-
-	res.redirect('/profile');
-};
-
-
+};	
 exports.profile = async (req, res, next) => {
 	let myGames = [];
 	try {

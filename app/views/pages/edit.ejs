@@ -10,25 +10,32 @@
 </header>
 <section class="section">
 	<div class="container">
-		<form class=edit action=edit method=post enctype=multipart/form-data> <fieldset>
+		<form class=edit action=edit method=post enctype=multipart/form-data> 
+			<fieldset class='field'>
 			<legend>
-				<h2 class="is-size-4">This is how others will see you</h2>
+				<h2 class="is-size-4">Profile</h2>
 			</legend>
-			<div class="field">
-				<input class="input" name=name placeholder='Your username'>
+			
+				
 				<div class="file is-boxed">
 					<label class="file-label">
 						<input class="file-input" name=picture type=file accept=image/*> <span class="file-cta">
-						<span class="file-icon">
-							<i class="fas fa-upload"></i>
-						</span>
+						<ion-icon name="camera-outline"></ion-icon>
 						<span class="file-label">
-							Upload a Profile pic
+							Upload your Profile picture
 						</span>
 						</span>
 					</label>
 				</div>
-			</div>
+			</fieldset>
+<fieldset class="field">
+	<legend>
+		<h2 class="is-size-4">Your Username</h2>
+	</legend>
+	<input class="input" name=name value=<%= user.name %>>
+</fieldset>
+
+
 			</fieldset>
 			<fieldset class="field">
 				<legend>
@@ -37,8 +44,14 @@
 				<% if (platforms.length) { %>
 				<% platforms.forEach(function(platform){ %>
 				<div class="field">
-					<input class="is-checkradio" id="<%= platform.value %>" type="checkbox" name="platforms"
-						value="<%= platform.name %>">
+					<input 	class="is-checkradio" 
+							id="<%= platform.value %>" 
+							type="checkbox" name="platforms"
+							value="<%= platform.name %>"
+							<% if (user.platforms.includes(platform.name)) { %>
+							checked
+							<% } %>
+							>
 					<label for="<%= platform.value %>"><%= platform.name %> </label>
 				</div>
 				<% }) %>
@@ -51,8 +64,14 @@
 				<% if (genres.length) { %>
 				<% genres.forEach(function(genre){ %>
 				<div class="field">
-					<input class="is-checkradio" id="<%= genre.value %>" type="checkbox" name="genres"
-						value="<%= genre.name %>">
+					<input	class="is-checkradio" 
+							id="<%= genre.value %>"
+							type="checkbox" name="genres"
+							value="<%= genre.name %>" 
+							<% if (user.genres.includes(genre.name)) { %>
+							 checked
+							<% } %>
+							>
 					<label for="<%= genre.value %>"><%= genre.name %> </label>
 				</div>
 				<% }) %>
@@ -60,13 +79,14 @@
 			</fieldset>
 			<fieldset class="field">
 				<legend>
-					<h2 class="is-size-4">What should others know about you?</h2>
+					<h2 class="is-size-4">About You</h2>
 				</legend>
-				<textarea class="textarea" name=about rows=5 placeholder=""></textarea>
+				<textarea class="textarea" name=about rows=5 > <%= user.about %>  </textarea>
 			</fieldset>
 			<div class=buttons>
-				<a class='next btn-main'>Next question</a>
-				<button type=submit class='button is-primary'>done</button>
+				<a href="/profile" class="button">Cancel</a>
+				<button type=submit class='button is-primary'>Save</button>
+				
 			</div>
 		</form>
 	</div>

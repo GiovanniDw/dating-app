@@ -9,17 +9,17 @@ exports.isLoggedIn = async (req, res, next) => {
 	}
 };
 // Restrict access to root page
-exports.home = (req, res) => {
-	if (req.user) {
-		res.render('pages/index', {
-			user: req.user,
-			users: users
-		});
-	} else {
-		res.redirect('/login');
-	}
-	console.log(users);
-};
+// exports.home = (req, res) => {
+// 	if (req.user) {
+// 		res.render('pages/index', {
+// 			user: req.user,
+// 			users: users
+// 		});
+// 	} else {
+// 		res.redirect('/login');
+// 	}
+// 	console.log(users);
+// };
 
 // Go to registration page
 exports.register = (req, res) => {

@@ -55,13 +55,13 @@
 				<h3 class="title is-4">Games</h3>
 				<div class="columns is-mobile is-multiline">
 					<% for (var j = 0; j < user.games.length; j++) { %>
-					<div class="column is-one-third">
+					<div class="column is-one-third-mobile is-one-quarter-tablet is-one-fifth-desktop">
 						<figure class="image is-marginless">
 							<img src="<%= user.games[j].cover %>" alt="<%= user.games[j].title %>">
 						</figure>
 					</div>
 					<% } %>
-					<div class="column is-one-third">
+					<div class="column is-one-third-mobile is-one-quarter-tablet is-one-fifth-desktop">
 						<a href='/games' class="button is-small is-rounded">
 							<span class="icon is-small">
 								<ion-icon name="search-outline"></ion-icon>
@@ -73,15 +73,23 @@
 
 				<h3 class="title is-4">Platforms</h3>
 				<div class="tags are-medium">
+
+<% if (user.platforms) { %>
 					<% for (var i = 0; i < user.platforms.length; i++) { %>
 					<span class="tag is-rounded is-primary is-light"><%= user.platforms[i] %></span>
 					<% } %>
+	<% } %>
+
 				</div>
 				<h3 class="title is-4">Genres</h3>
 				<div class="tags are-medium">
+<% if (user.genres) { %>
+
 					<% for (var i = 0; i < user.genres.length; i++) { %>
 					<span class="tag is-rounded is-primary is-light"><%= user.genres[i] %></span>
 					<% } %>
+	<% } %>
+
 				</div>
 				<h3 class="title is-4">About</h3>
 				<p class=""> <%= user.about %> </p>

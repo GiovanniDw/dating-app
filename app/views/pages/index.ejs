@@ -67,15 +67,21 @@
 				</div>
 				<h3 class="title is-4">Platforms</h3>
 				<div class="tags are-medium">
-					<% for (var j = 0; j < users[i].platforms.length; j++) { %>
-					<span class="tag is-rounded is-primary is-light"><%= users[i].platforms[j] %></span>
+					<% if (users[i].platforms) { %>
+					 <% for (var j = 0; j < users[i].platforms.length; j++) { %>
+					 <span class="tag is-rounded is-primary is-light"><%= users[i].platforms[j] %></span>
+					 <% } %>
 					<% } %>
+					
 				</div>
 				<h3 class="title is-4">Genres</h3>
 				<div class="tags are-medium">
-					<% for (var j = 0; j < users[i].genres.length; j++) { %>
-					<span class="tag is-rounded is-primary is-light"><%= users[i].genres[j] %></span>
+					<% if (users[i].genres) { %>
+					 	<% for (var j = 0; j < users[i].genres.length; j++) { %>
+					 	<span class="tag is-rounded is-primary is-light"><%= users[i].genres[j] %></span>
+					 	<% } %>
 					<% } %>
+				
 				</div>
 				<h3 class="title is-4">About</h3>
 				<p class=""> <%= users[i].about %> </p>

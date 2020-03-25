@@ -89,6 +89,41 @@ $ npm run nmStart
 - [ejs-lint](https://github.com/RyanZim/EJS-Lint) - Linter/Syntax Checker for [EJS Templates](https://github.com/mde/ejs).
 
 ### Application Structure
+```
+app/
+  ├─controllers/
+  │ ├─
+  │ ├─
+  │ ├─
+  │ └─
+  ├─helpers/
+  │ ├─
+  │ ├─
+  │ ├─
+  │ └─
+  ├─middleware/
+  │ ├─
+  │ └─
+  ├─middleware/
+  │ ├─
+  │ └─
+  ├─models/
+  │ ├─
+  │ └─
+  ├─routes/
+  │ ├─
+  │ └─
+
+
+
+
+
+
+
+
+```
+
+
 - `server.js` - The entry point to the application.
 - `passport.js` - Contains configuration for passport.
 - `app/routes` - This folder contains the app's routes.

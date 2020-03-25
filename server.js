@@ -11,12 +11,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
-app.use('/', express.static('app/static/'));
+app.use('/', express.static('static/'));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'app/views'));
 
-require('./passport')(app);
+require('./config/passport')(app);
 
 app.use(require('./app/routes'));
 
@@ -39,7 +39,7 @@ app.use((error, req, res, next) => {
 });
 
 // config mongoose
-require('./app/middleware/mongoose')()
+require('./config/middleware/mongoose')()
 	.then(() => {
 		app.listen(PORT, () => console.log(`Server up and running on ${PORT}.`));
 	})
@@ -50,3 +50,4 @@ require('./app/middleware/mongoose')()
 		console.error('Unable to connect to mongo.');
 		console.error(err);
 	});
+

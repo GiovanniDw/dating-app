@@ -6,6 +6,12 @@ const profile = require('../controllers/ProfileController.js');
 
 const router = express.Router();
 
+const multer = require('multer');
+const upload = multer({
+	dest: './static/uploads/'
+});
+
+
 router.get('/', match.show);
 
 router.get('/login', auth.login);
@@ -15,7 +21,7 @@ router.get('/register', auth.register);
 router.post('/register', auth.doRegister);
 
 router.get('/onboarding', profile.onboarding);
-router.post('/onboarding', profile.doOnboarding);
+router.post('/onboarding', upload.single('picture'), profile.doOnboarding);
 
 router.get('/logout', auth.logout);
 

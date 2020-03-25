@@ -24,7 +24,8 @@ const UserSchema = new Schema({
 	}],
 	like: [{
 		type: Schema.Types.ObjectId,
-		ref: 'User'
+		ref: 'User',
+		autopopulate: true
 	}],
 	dislike: [{
 		type: Schema.Types.ObjectId,
