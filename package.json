@@ -4,9 +4,9 @@
 	"description": "Dating app Packages",
 	"main": "server.js",
 	"scripts": {
-		"eslint": "node_modules/.bin/eslint server.js app/controllers/*.js app/static/js/*.js",
-		"stylelint": "node_modules/.bin/stylelint app/static/sass/*.scss",
-		"css-build": "node-sass --omit-source-map-url app/static/sass/main.scss app/static/css/main.css",
+		"eslint": "node_modules/.bin/eslint server.js app/controllers/*.js static/js/*.js",
+		"stylelint": "node_modules/.bin/stylelint static/sass/*.scss",
+		"css-build": "node-sass --omit-source-map-url static/sass/main.scss static/css/main.css",
 		"css-watch": "npm run css-build -- --watch",
 		"test": "test",
 		"start": "node server.js",

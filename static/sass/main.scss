@@ -37,8 +37,11 @@ ion-icon {
 	font-size: 1.5rem;
 }
 
-@import "../../../node_modules/bulma/bulma.sass";
-@import "../../../node_modules/bulma-extensions/src/sass/index.sass";
+@import "static/sass/global.sass";
+@import "../../node_modules/bulma-extensions/src/sass/index.sass";
+
+
+
 
 // .button-back {
 //     padding-left: 0em;
