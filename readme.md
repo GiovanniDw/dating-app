@@ -1,4 +1,4 @@
-# Party Finder <img src="app/static/images/logo.png" width="110" align="left" /> 
+# Party Finder <img src="static/images/logo.png" width="110" align="left" /> 
 With Party Finder you can find gamers with the same intrests as you!   
  
 *** 
@@ -16,7 +16,7 @@ The research of this project will be documented in the [Wiki](https://github.com
 - [x] Add Profile info.
 - [x] Search for games using the [IGDB api](https://api-docs.igdb.com/#about).
 - [x] Add a game to your profile.
-- [ ] Like/Dislike Profiles.
+- [x] Like/Dislike Profiles.
 
 ## Contents
 
