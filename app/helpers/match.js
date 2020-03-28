@@ -19,7 +19,6 @@ exports.users = async (thisUser) => {
 			users = db.User.find({_id: { $ne: thisUser._id}});
 			// users.push(db.User.find());
 			
-			console.log(users);
 			resolve(users);
 		} catch (err) {
 			reject({
