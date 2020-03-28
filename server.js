@@ -18,7 +18,6 @@ app.set('views', path.join(__dirname, 'app/views'));
 
 require('./config/passport')(app);
 
-
 app.use(require('./app/routes'));
 
 app.use((error, req, res, next) => {
