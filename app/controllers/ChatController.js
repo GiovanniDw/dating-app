@@ -1,7 +1,5 @@
 exports.chat = async (req, res, next) => {
 	try {
-		
-
 		if (req.user) {
 			res.render('pages/chat', {
 				title: 'Chat',
