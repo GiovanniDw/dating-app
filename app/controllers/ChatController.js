@@ -1,4 +1,4 @@
-exports.chat = async (req, res, next) => {
+exports.chat = (req, res, next) => {
 	try {
 		res.render('pages/chat', {
 			title: 'Chat',
