@@ -7,7 +7,12 @@ const WORK_FACTOR = 10;
 
 const UserSchema = new Schema({
 	name: String,
-	username: String,
+	username: {
+		
+		type: String,
+		required: true,
+		index: {unique: true}
+	} ,
 	platforms: [{
 		type: String
 	}],
@@ -29,7 +34,8 @@ const UserSchema = new Schema({
 	}],
 	dislike: [{
 		type: Schema.Types.ObjectId,
-		ref: 'User'
+		ref: 'User',
+		autopopulate: true
 	}]
 });
 UserSchema.plugin(require('mongoose-autopopulate'));

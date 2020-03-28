@@ -33,10 +33,10 @@ module.exports = (app) => {
 	}));
 	app.use(flash());
 	passport.serializeUser((user, done) => {
-		done(null, user._id);
+		done(null, user.id);
 	});
-	passport.deserializeUser(function (userId, done) {
-		db.User.findById(userId)
+	passport.deserializeUser(async function (userId, done) {
+		await db.User.findById(userId)
 			.then(function (user) {
 				done(null, user);
 			})

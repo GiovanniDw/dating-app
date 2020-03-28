@@ -10,15 +10,26 @@
 </header>
 <section class="section">
 	<div class="container">
-		<form class='onboarding' action=/onboarding method=post enctype=multipart/form-data> <fieldset>
+		<form class='onboarding' action=onboarding method=post enctype=multipart/form-data> 
+			
+			<fieldset class="field">
 			<legend>
 				<h2 class="is-size-4">This is how others will see you</h2>
 			</legend>
 			<div class="field">
 				<input class="input" name=name placeholder='Your username'>
-				
 			</div>
 			</fieldset>
+				<div class="file is-boxed">
+					<label class="file-label">
+						<input class="file-input" name=picture type=file accept=image/*> <span class="file-cta">
+						<ion-icon name="camera-outline"></ion-icon>
+						<span class="file-label">
+							Upload your Profile picture
+						</span>
+						</span>
+					</label>
+				</div>
 			<fieldset class="field">
 				<legend>
 					<h2 class="is-size-4">Select your favorite platforms</h2>

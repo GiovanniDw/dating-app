@@ -1,4 +1,4 @@
-const db = require('../models');
+
 const profileHelper = require('../helpers/profile');
 
 let platformData = [{
@@ -60,10 +60,9 @@ exports.onboarding = (req, res) => {
 exports.doOnboarding = async (req, res, next) => {
 	const userInfo = req.body;
 	const userID = req.user.id;
+	const avatar = req.file ? req.file.filename : null;
 	try {
-		await profileHelper.saveInfo(userID, userInfo);
-console.log(userID);
-
+		await profileHelper.saveInfo(userID, userInfo, avatar);
 		res.redirect('/profile');
 	} catch (err) {
 		next(err);
@@ -92,26 +91,15 @@ exports.editProfile = (req, res) => {
 	});
 };
 
-exports.doEditProfile = (req, res, next) => {
-	db.User.findOneAndUpdate({
-		_id: req.user._id
-	}, {
-		$set: {
-			name: req.body.name,
-			// username: req.body.username,
-			platforms: req.body.platforms,
-			genres: req.body.genres,
-			picture: req.file ? req.file.filename : null,
-			about: req.body.about
-		}
-	}, done);
-
-	function done(err) {
-		if (err) {
-			next(err);
-		} else {
-
-			res.redirect('/profile');
-		}
+exports.doEditProfile = async (req, res, next) => {
+	const userInfo = req.body;
+	const userID = req.user.id;
+	const avatar = req.file ? req.file.filename : null;
+	try {
+		await profileHelper.saveInfo(userID, userInfo, avatar);
+		res.redirect('/profile');
+	} catch (err) {
+		next(err);
 	}
 };
+

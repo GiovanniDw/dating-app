@@ -1,28 +1,29 @@
 <%- include ('../partials/head') %>
 <header>
-	<nav class="navbar is-fixed-top">
+	<nav class="navbar is-fixed-top is-primary">
 		<div class="navbar-menu is-flex is-shadowless">
 			<div class="navbar-start">
 				<div class="navbar-item">
-					<%_ if (title == 'Search') { %>
-					<a class="navbar-link is-arrowless">
+				
+					<a class="navbar-link is-arrowless" href="/profile">
 						Back
 					</a>
-					<% } else {} %>
+			
 				</div>
 			</div>
 			<div class="navbar-center">
 				<div class="navbar-item">
-					Search
+					<h1 class="title">Games</h1>
+					
 				</div>
 			</div>
 			<div class="navbar-end">
-				<div class="navbar-item">
-					<%_ if (title == 'Profile') { %>
+				<div class="navbar-item is-invisible">
+				
 					<a class="navbar-link is-arrowless">
 						Edit
 					</a>
-					<% } else {} %>
+				
 				</div>
 			</div>
 		</div>
@@ -47,16 +48,17 @@
 		<% for (var i = 0; i < games.length; i++) { %>
 		<div class="column is-one-third">
 			<figure class="image">
-				<h3><%= games[i].title %></h3>
+				
 				<img src="<%= games[i].cover %>" alt="<%= games[i].title %>">
 				<form class="is-overlay" action="/games/add/<%= games[i].id %>" method="post">
-					<button data-id="<%= games[i].id %>" class="button is-rounded">
+					<button data-id="<%= games[i].id %>" class="button is-pulled-right is-bulled-down is-rounded is-primary">
 						<span class="icon">
 							<ion-icon name="add"></ion-icon>
 						</span>
 					</button>
 				</form>
 			</figure>
+			<h3><%= games[i].title %></h3>
 		</div>
 		<% } %>
 	</div>

@@ -18,16 +18,8 @@ app.set('views', path.join(__dirname, 'app/views'));
 
 require('./config/passport')(app);
 
+
 app.use(require('./app/routes'));
-
-app.get('/chat', chat);
-
-function chat(req, res) {
-	res.render('pages/chat', {
-		title: 'Chats',
-		user: req.user
-	});
-}
 
 app.use((error, req, res, next) => {
 	console.error(error);
@@ -50,4 +42,3 @@ require('./config/middleware/mongoose')()
 		console.error('Unable to connect to mongo.');
 		console.error(err);
 	});
-

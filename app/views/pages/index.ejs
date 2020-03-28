@@ -1,41 +1,30 @@
 <%- include ('../partials/head') %>
 <header>
-	<nav class="navbar is-fixed-top">
+	<nav class="navbar is-fixed-top is-danger">
 		<div class="navbar-menu is-flex is-shadowless">
 			<div class="navbar-start">
-				<div class="navbar-item">
-					<%_ if (title == 'Profile') { %>
+				<div class="navbar-item is-invisible">
 					<a class="navbar-link is-arrowless">
 						Back
 					</a>
-					<% } else {} %>
 				</div>
 			</div>
 			<div class="navbar-center">
 				<div class="navbar-item">
-					<!-- <h1 class="title">
-            Title
-          </h1> -->
+					<h1 class="title">
+						Discover
+					</h1>
 				</div>
 			</div>
 			<div class="navbar-end">
-				<div class="navbar-item">
-					<%_ if (title == 'Profile') { %>
-					<a class="navbar-link is-arrowless">
+				<div class="navbar-item  is-invisible">
+					<a href="profile/edit" class="navbar-link is-arrowless">
 						Edit
 					</a>
-					<% } else {} %>
 				</div>
 			</div>
 		</div>
 	</nav>
-	<section class="hero">
-		<div class="hero-body">
-			<h1 class="title">
-				Discover
-			</h1>
-		</div>
-	</section>
 </header>
 <% if (typeof user == 'object' && user) { %>
 <section class="section">
@@ -86,14 +75,14 @@
 				<h3 class="title is-4">About</h3>
 				<p class=""> <%= users[i].about %> </p>
 				<div class="is-divider"></div>
-				<form action="/like">
+				<form action="/dislike/<%= users[i]._id %>" method="GET">
 					<div class="buttons is-centered">
-						<button class="button is-large is-rounded is-danger">
+						<button type='submit' class="button is-large is-rounded is-danger" >
 							<span class="icon is-large">
 								<ion-icon name="trash-outline"></ion-icon>
 							</span>
 						</button>
-						<button class="button is-large is-rounded is-success">
+						<button type='submit' class="button is-large is-rounded is-success" formaction="/like/<%= users[i]._id %>">
 							<span class="icon is-large">
 							<ion-icon name="game-controller-outline"></ion-icon>
 							</span>

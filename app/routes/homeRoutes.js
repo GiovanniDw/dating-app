@@ -1,28 +1,21 @@
 const express = require('express');
 
-const auth = require('../controllers/HomeController.js');
+const authController = require('../controllers/AuthController.js');
+const auth = require('../../config/middleware/authorization');
 const match = require('../controllers/MatchController.js');
-const profile = require('../controllers/ProfileController.js');
 
 const router = express.Router();
 
-const multer = require('multer');
-const upload = multer({
-	dest: './static/uploads/'
-});
+router.get('/', auth.requiresLogin ,match.users);
+router.get('/like/:id', auth.requiresLogin, match.like);
+router.get('/dislike/:id', auth.requiresLogin, match.dislike);
 
+router.get('/login', authController.login);
+router.post('/login', authController.doLogin);
 
-router.get('/', match.show);
+router.get('/register', authController.register);
+router.post('/register', authController.doRegister);
 
-router.get('/login', auth.login);
-router.post('/login', auth.doLogin);
-
-router.get('/register', auth.register);
-router.post('/register', auth.doRegister);
-
-router.get('/onboarding', profile.onboarding);
-router.post('/onboarding', upload.single('picture'), profile.doOnboarding);
-
-router.get('/logout', auth.logout);
+router.get('/logout', authController.logout);
 
 module.exports = router;

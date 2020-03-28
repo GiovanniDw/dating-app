@@ -1,3 +1,4 @@
+/* eslint-disable no-async-promise-executor */
 const api = require('../helpers/api');
 const db = require('../models');
 

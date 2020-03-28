@@ -1,6 +1,7 @@
+/* eslint-disable no-async-promise-executor */
 const db = require('../models');
 
-exports.saveInfo = (userID, userInfo) => {
+exports.saveInfo = (userID, userInfo, avatar) => {
 	
 	return new Promise(async (resolve, reject) => {
 		let {name, platforms, genres, about} = userInfo;
@@ -16,31 +17,16 @@ exports.saveInfo = (userID, userInfo) => {
 				name: name,
 				platforms: platforms,
 				genres: genres,
-				about: about
+				about: about,
+				picture: avatar
 			});
-
-
-			
 			await user.save();
-			resolve(user);
+			resolve('user');
 		} catch (err) {
 			reject(err);
 		}
 	});
 };
-
-// User.findById(req.params.id, (err, user) => {
-// 	// This assumes all the fields of the object is present in the body.
-// 	user.name = req.body.name;
-// 	user.age = req.body.age;
-// 	user.country = req.body.country;
-
-// 	user.save((saveErr, updatedUser) => {
-// 		res.send({
-// 			data: updatedUser
-// 		});
-// 	});
-// });
 
 
 exports.addGame = (userID, gameID) => {

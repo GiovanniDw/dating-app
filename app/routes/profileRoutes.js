@@ -1,18 +1,23 @@
 const express = require('express');
 const router = express.Router();
 
-const auth = require('../controllers/HomeController.js');
+
 const profile = require('../controllers/ProfileController.js');
 
-const mustBeLoggedIn = require('../../config/middleware/mustBeLoggedIn');
+const auth = require('../../config/middleware/authorization');
 
 const multer = require('multer');
 const upload = multer({
 	dest: './static/uploads/'
 });
 
-router.get('/', profile.profile);
-router.get('/edit', auth.isLoggedIn, profile.editProfile);
+router.get('/', auth.requiresLogin ,profile.profile);
+router.get('/edit', auth.requiresLogin, profile.editProfile);
 router.post('/edit', upload.single('picture'), profile.doEditProfile);
+router.get('/onboarding', auth.requiresLogin, profile.onboarding);
+router.post('/onboarding', upload.single('picture'), profile.doOnboarding);
 
 module.exports = router;
+
+
+

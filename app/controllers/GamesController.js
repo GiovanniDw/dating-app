@@ -1,8 +1,6 @@
 const gamesHelper = require('../helpers/games');
 const profileHelper = require('../helpers/profile');
 
-
-
 const games = [];
 
 exports.list = async (req, res, next) => {
@@ -42,8 +40,6 @@ exports.addGame = async (req, res, next) => {
 	try {
 		let checkDup = await gamesHelper.findGameId(id); //checks if the id of a game is in the database
 		const game = await gamesHelper.findOne(id); // finds/creates game obj
-
-
 		if (checkDup == false || checkDup == null) {
 			//if the id is not in DB, save to db and to user.
 			gamesHelper.save(game);
