@@ -27,17 +27,18 @@ const UserSchema = new Schema({
 		ref: 'SingleGame',
 		autopopulate: true
 	}],
-	like: [{
-		type: Schema.Types.ObjectId,
+	likes: {
+		type: [Schema.Types.ObjectId],
 		ref: 'User',
 		autopopulate: true
-	}],
-	dislike: [{
-		type: Schema.Types.ObjectId,
+	},
+	dislikes: {
+		type: [Schema.Types.ObjectId],
 		ref: 'User',
 		autopopulate: true
-	}]
+	}
 });
+
 UserSchema.plugin(require('mongoose-autopopulate'));
 
 UserSchema.pre('save', function (next) {
@@ -83,3 +84,4 @@ UserSchema.methods.validatePassword = function (candidatePassword) {
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;
+

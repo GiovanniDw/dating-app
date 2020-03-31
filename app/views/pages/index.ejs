@@ -1,6 +1,6 @@
 <%- include ('../partials/head') %>
 <header>
-	<nav class="navbar is-fixed-top is-danger">
+	<nav class="navbar is-fixed-top">
 		<div class="navbar-menu is-flex is-shadowless">
 			<div class="navbar-start">
 				<div class="navbar-item is-invisible">
@@ -75,14 +75,14 @@
 				<h3 class="title is-4">About</h3>
 				<p class=""> <%= users[i].about %> </p>
 				<div class="is-divider"></div>
-				<form action="/dislike/<%= users[i]._id %>" method="GET">
+				<form action="/vote/<%= users[i]._id %>" method="POST">
 					<div class="buttons is-centered">
-						<button type='submit' class="button is-large is-rounded is-danger" >
+						<button type='submit' class="button is-large is-rounded is-danger" name='vote' value="dislike">
 							<span class="icon is-large">
 								<ion-icon name="trash-outline"></ion-icon>
 							</span>
 						</button>
-						<button type='submit' class="button is-large is-rounded is-success" formaction="/like/<%= users[i]._id %>">
+						<button type='submit' class="button is-large is-rounded is-success" name='vote' value="like">
 							<span class="icon is-large">
 							<ion-icon name="game-controller-outline"></ion-icon>
 							</span>

@@ -3,9 +3,9 @@ const matchHelper = require('../helpers/match');
 exports.users = async (req, res, next) => {
 	const thisUser = req.user;
 	let users = [];
+	
 	try {
 		users = await matchHelper.users(thisUser);
-		
 		if (req.user) {
 			res.render('pages/index', {
 				title: 'Discover',
@@ -19,26 +19,26 @@ exports.users = async (req, res, next) => {
 		next(err);
 	}
 };
-exports.like = async (req, res, next) => {
+
+
+exports.vote = async (req, res, next) => {
 	const id = req.params.id;
 	const user = req.user.id;
-	try {	
-		matchHelper.like(user, id);
-		res.redirect('/');
-	} catch (err) {
-		next(err);
-	}
-};
-exports.dislike = async (req, res, next) => {
-	const id = req.params.id;
-	const user = req.user.id;
+	console.log(req.body.vote);
+	let vote = req.body.vote;
 	try {
-		matchHelper.dislike(user, id);
+		if (vote == 'like') {
+			await matchHelper.like(user, id);
+		}
+		if (vote == 'dislike') {
+			await matchHelper.dislike(user, id);
+		}
 		res.redirect('/');
 	} catch (err) {
 		next(err);
 	}
 };
+
 // exports.dislike = async (req, res, next) => {
 // 	const id = req.params.id;
 // 	const user = req.user.id;
