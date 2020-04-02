@@ -8,7 +8,6 @@ const WORK_FACTOR = 10;
 const UserSchema = new Schema({
 	name: String,
 	username: {
-		
 		type: String,
 		required: true,
 		index: {unique: true}
@@ -38,17 +37,14 @@ const UserSchema = new Schema({
 		autopopulate: true
 	}
 });
-
 UserSchema.plugin(require('mongoose-autopopulate'));
 
 UserSchema.pre('save', function (next) {
 	const user = this;
-
 	// only hash the password if it has been modified (or is new)
 	if (!user.isModified('password')) {
 		return next();
 	}
-
 	// generate a salt
 	bcrypt.genSalt(WORK_FACTOR, function (err, salt) {
 		if (err) return next(err);
@@ -64,9 +60,6 @@ UserSchema.pre('save', function (next) {
 		});
 	});
 });
-
-
-
 // Here, we define a method that will be available on each instance of the User.
 // This method will validate a given password with the actual password, and resolve
 // true if the password is a match, or false if it is not.
@@ -79,8 +72,6 @@ UserSchema.methods.validatePassword = function (candidatePassword) {
 		});
 	});
 };
-
-
 const User = mongoose.model('User', UserSchema);
 
 module.exports = User;

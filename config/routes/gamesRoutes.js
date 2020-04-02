@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 
-const games = require('../controllers/GamesController');
-const auth = require('../../config/middleware/authorization');
+const games = require('../../app/controllers/GamesController');
+const auth = require('../middleware/authorization');
 
 router.get('/', auth.requiresLogin, games.list);
 router.get('/search', auth.requiresLogin, games.search);

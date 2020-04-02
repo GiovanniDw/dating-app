@@ -1,8 +1,6 @@
 /* eslint-disable no-async-promise-executor */
 const db = require('../models');
 
-
-
 exports.users = async (thisUser) => {
 	let object = {};
 	let ids = [].concat(thisUser._id, thisUser.likes, thisUser.dislikes);
@@ -10,25 +8,10 @@ exports.users = async (thisUser) => {
 	object._id = {
 		$nin: ids
 	};
-	// console.log(ids);
 	return new Promise(async function (resolve, reject) {
 		try {
-			
-			// let ids = Array.concat(thisUser._id);
-			//let findAll = await db.User.find();
-			
-			// let user = await db.User.findById(thisUser._id);
-			// if (user != findAll) {
-			// 	users.push(findAll);
-			// }
-
-
 			let users = await db.User.find(object);
 			resolve(users);
-			
-			// users.push(db.User.find());
-			
-			
 		} catch (err) {
 			reject({
 				type: 'error'
@@ -66,27 +49,3 @@ exports.dislike = (userID, voteID) => {
 		}
 	});
 };
-
-
-
-
-
-// exports.match = async (userID) => {
-// 	return new Promise(async function (resolve, reject) {
-
-// 		let matches = [];
-// 		try {
-
-
-// 			await db.User.findOne(userID);
-
-// 			resolve(matches);
-// 		} catch (err) {
-// 			reject({
-// 				type: 'error'
-// 			});
-// 		}
-// 	});
-
-
-// };

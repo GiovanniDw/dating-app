@@ -24,7 +24,6 @@ exports.doRegister = async (req, res, next) => {
 			if (!user) {
 				newUser.save(function (err) {
 					if (err) {
-						console.log(err);
 						return res.render('users/signup', {
 							errors: req.flash,
 							user: newUser

@@ -2,7 +2,6 @@
 const db = require('../models');
 
 exports.saveInfo = (userID, userInfo, avatar) => {
-	
 	return new Promise(async (resolve, reject) => {
 		let {name, platforms, genres, about} = userInfo;
 		try {
@@ -27,7 +26,6 @@ exports.saveInfo = (userID, userInfo, avatar) => {
 		}
 	});
 };
-
 
 exports.addGame = (userID, gameID) => {
 	return new Promise(async (resolve, reject) => {

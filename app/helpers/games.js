@@ -2,8 +2,6 @@
 const api = require('../helpers/api');
 const db = require('../models');
 
-
-
 exports.popular = async () => {
 	try {
 		const results = [];
@@ -73,7 +71,7 @@ exports.findGameId = async (id) => {
 		let game = await db.SingleGame.findById(id);
 		return (game);
 	} catch (err) {
-		next(err);
+		throw new Error('Game by id not found');
 	}
 };
 exports.save = (game) => {
@@ -92,7 +90,7 @@ exports.save = (game) => {
 			return game; // if there is not an error resolve the promise
 		});
 	} catch (err) {
-		next(err);
+		throw new Error('Can not save');
 	}
 
 };
