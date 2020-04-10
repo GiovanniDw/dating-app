@@ -1,7 +1,7 @@
 {
 	"name": "party-finder",
 	"version": "1.0.0",
-	"description": "Dating app Packages",
+	"description": "Party Finder, Find Game Parties",
 	"main": "server.js",
 	"scripts": {
 		"eslint": "node_modules/.bin/eslint server.js app/controllers/*.js static/js/*.js",
