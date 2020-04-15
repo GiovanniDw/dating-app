@@ -88,52 +88,46 @@ $ npm run nmStart
 - [node-sass](https://github.com/sass/node-sass) - node-sass allows you to natively compile .scss files to css at incredible speed and automatically via a connect middleware.
 - [ejs-lint](https://github.com/RyanZim/EJS-Lint) - Linter/Syntax Checker for [EJS Templates](https://github.com/mde/ejs).
 
-### Application Structure
+### Folder Structure
 ```
-app/
-  ├─controllers/
-  │ ├─
-  │ ├─
-  │ ├─
-  │ └─
-  ├─helpers/
-  │ ├─
-  │ ├─
-  │ ├─
-  │ └─
-  ├─middleware/
-  │ ├─
-  │ └─
-  ├─middleware/
-  │ ├─
-  │ └─
-  ├─models/
-  │ ├─
-  │ └─
-  ├─routes/
-  │ ├─
-  │ └─
-
-
-
-
-
-
-
-
+    .
+    ├── app/
+    │   ├── controllers/            # Contains the controllers for the routes.
+    │   │   └── *.js
+    │   ├── helpers/
+    │   │   └── **/*.js
+    │   ├── models/                 # Contains the Schema defenitions for Mongoose models
+    │   │   └── *.js
+    │   └── views/                  # Contains ejs files that will be compiled to html by expressjs
+    │       └── **/*.ejs
+    ├── config/                     # Configuration will be managed in this folder
+    │   ├── middleware/             # Contains middleware functions.
+    │   │   └── *.js
+    │   ├── routes/                 # Contains the app's routes.
+    │   │   └── **/*.js
+    │   └── passport.js             # Contains configuration for passport.
+    ├── static/                     # Contains static files that will be rendered in the root folder
+    │   ├── css/
+    │   │   └── main.css
+    │   ├── images/
+    │   │   └── **/*
+    │   ├── js/
+    │   │   └── **/*.js
+    │   ├── sass/
+    │   │   └── **/*.sass
+    │   ├── splashscreens/
+    │   ├── uploads/
+    │   │   └── **/*
+    │   ├── favicon.ico
+    │   └── manifest.json
+    ├── .editorconfig
+    ├── .gitignore
+    ├── LICENCE
+    ├── package.json
+    ├── Procfile
+    ├── README.md
+    └── server.js                    # The entry point to the application.
 ```
-
-
-- `server.js` - The entry point to the application.
-- `passport.js` - Contains configuration for passport.
-- `app/routes` - This folder contains the app's routes.
-- `app/controllers` - Contains the controllers for the routes.
-- `app/models` - Contains the Schema defenitions for Mongoose models
-- `app/helpers` - Contains helper functions for the controllers.
-- `app/middleware` - Contains middleware functions.
-- `app/static` - Contains static files like images & css.
-- `app/views` - Contains ejs files that will be compiled by expressjs
-
 
 ## Resources
 - [https://api-docs.igdb.com/](https://api-docs.igdb.com/)
