@@ -90,43 +90,43 @@ $ npm run nmStart
 
 ### Folder Structure
 ```
-    .
-    ├── app/
-    │   ├── controllers/            # Contains the controllers for the routes.
-    │   │   └── *.js
-    │   ├── helpers/
-    │   │   └── **/*.js
-    │   ├── models/                 # Contains the Schema defenitions for Mongoose models
-    │   │   └── *.js
-    │   └── views/                  # Contains ejs files that will be compiled to html by expressjs
-    │       └── **/*.ejs
-    ├── config/                     # Configuration will be managed in this folder
-    │   ├── middleware/             # Contains middleware functions.
-    │   │   └── *.js
-    │   ├── routes/                 # Contains the app's routes.
-    │   │   └── **/*.js
-    │   └── passport.js             # Contains configuration for passport.
-    ├── static/                     # Contains static files that will be rendered in the root folder
-    │   ├── css/
-    │   │   └── main.css
-    │   ├── images/
-    │   │   └── **/*
-    │   ├── js/
-    │   │   └── **/*.js
-    │   ├── sass/
-    │   │   └── **/*.sass
-    │   ├── splashscreens/
-    │   ├── uploads/
-    │   │   └── **/*
-    │   ├── favicon.ico
-    │   └── manifest.json
-    ├── .editorconfig
-    ├── .gitignore
-    ├── LICENCE
-    ├── package.json
-    ├── Procfile
-    ├── README.md
-    └── server.js                    # The entry point to the application.
+  .
+  ├── app/
+  │   ├── controllers/            # Contains the controllers for the routes.
+  │   │   └── *.js
+  │   ├── helpers/
+  │   │   └── **/*.js
+  │   ├── models/                 # Contains the Schema defenitions for Mongoose models
+  │   │   └── *.js
+  │   └── views/                  # Contains ejs files that will be compiled to html by expressjs
+  │       └── **/*.ejs
+  ├── config/                     # Configuration will be managed in this folder
+  │   ├── middleware/             # Contains middleware functions.
+  │   │   └── *.js
+  │   ├── routes/                 # Contains the app's routes.
+  │   │   └── **/*.js
+  │   └── passport.js             # Contains configuration for passport.
+  ├── static/                     # Contains static files that will be rendered in the root folder
+  │   ├── css/
+  │   │   └── main.css
+  │   ├── images/
+  │   │   └── **/*
+  │   ├── js/
+  │   │   └── **/*.js
+  │   ├── sass/
+  │   │   └── **/*.sass
+  │   ├── splashscreens/
+  │   ├── uploads/
+  │   │   └── **/*
+  │   ├── favicon.ico
+  │   └── manifest.json
+  ├── .editorconfig
+  ├── .gitignore
+  ├── LICENCE
+  ├── package.json
+  ├── Procfile
+  ├── README.md
+  └── server.js                    # The entry point to the application.
 ```
 
 ## Resources
